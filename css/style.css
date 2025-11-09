@@ -2,7 +2,9 @@
 :root {
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
-    --accent-color: #f97316;
+    --accent-color: #FF0101; /* Primary accent color */
+    --accent-color-dark: #E80000; /* Darker variant for hover states */
+    --accent-color-light: #EF0101; /* Lighter variant */
     --text-color: #333;
     --bg-color: #ffffff;
     --card-bg: #f8fafc;
@@ -14,7 +16,9 @@
 [data-theme="dark"] {
     --primary-color: #60a5fa;
     --secondary-color: #3b82f6;
-    --accent-color: #fb923c;
+    --accent-color: #FF0101; /* Keeping the same vibrant red in dark mode */
+    --accent-color-dark: #E80000;
+    --accent-color-light: #EF0101;
     --text-color: #f1f5f9;
     --bg-color: #0f172a;
     --card-bg: #1e293b;
@@ -134,40 +138,45 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url('../assets/introductionbgimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    transform: rotate(30deg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.80); /* Dark overlay for text readability */
+    z-index: 1;
 }
 
 .hero-container {
     max-width: 800px;
     padding: 2rem;
-    z-index: 1;
+    z-index: 2; /* Ensure content is above the overlay */
 }
 
 .hero-container h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInDown 1s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-container p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -181,10 +190,12 @@ body {
     transition: var(--transition);
     border: 2px solid var(--accent-color);
     animation: fadeIn 1.5s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
-    background-color: transparent;
+    background-color: var(--accent-color-dark);
+    border-color: var(--accent-color-dark);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -317,7 +328,7 @@ body {
 }
 
 .tag {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
