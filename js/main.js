@@ -160,3 +160,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Mobile Device Detection and Background Image Switching
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is on a mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Apply mobile background
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.style.backgroundImage = "url('../assets/introductionbgimagemobile.jpg')";
+        }
+    }
+});
+
+// Project Showcase with Modal Popup
+document.addEventListener('DOMContentLoaded', function() {
+    // Project descriptions (you can customize these)
+    const projectDescriptions = [
+        { title: "Featured Project", description: "Banner" },
+        { title: "Project H_002", description: "Description coming soon." },
+        { title: "Project H_003", description: "Description coming soon." },
+        { title: "Project H_004", description: "Description coming soon." },
+        { title: "Project H_006", description: "Description coming soon." },
+        { title: "Project H_007", description: "Description coming soon." },
+        { title: "Project H_008", description: "Description coming soon." },
+        { title: "Project H_009", description: "Description coming soon." },
+        { title: "Project H_010", description: "Description coming soon." },
+        { title: "Project H_011", description: "Description coming soon." },
+        { title: "Project H_012", description: "Description coming soon." },
+        { title: "Project H_013", description: "Description coming soon." },
+        { title: "Project H_014", description: "Description coming soon." }
+    ];
+
+    // Get modal elements
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+    const closeBtn = document.querySelector('.close');
+
+    // Get all project images
+    const projectImages = document.querySelectorAll('.project-img');
+
+    // Add click event to all images
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            const src = this.getAttribute('src');
+            const description = projectDescriptions[index];
+            
+            // Set modal content
+            modalImage.src = src;
+            modalTitle.textContent = description.title;
+            modalText.textContent = description.description;
+            
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close modal when X is clicked
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    });
+});
