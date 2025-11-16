@@ -29,6 +29,27 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+// Brand Image Theme Switching
+function updateBrandImage() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const brandImage = document.getElementById('brands-image');
+    
+    if (currentTheme === 'dark') {
+        brandImage.src = 'assets/brandsthatiworkedfordark.png';
+    } else {
+        brandImage.src = 'assets/brandsthatiworkedforlight.png';
+    }
+}
+
+// Call on initial load
+document.addEventListener('DOMContentLoaded', updateBrandImage);
+
+// Update when theme changes
+themeToggle.addEventListener('click', function() {
+    // Wait a bit for the theme to change before updating the image
+    setTimeout(updateBrandImage, 100);
+});
+
 // Mobile navigation toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -188,12 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Project H_008", description: "Description coming soon." },
         { title: "Project H_009", description: "Description coming soon." },
         { title: "Project H_010", description: "Description coming soon." },
-        { title: "Project H_011", description: "Description coming soon." },
-        { title: "Project H_012", description: "Description coming soon." },
+        { title: "Project H_011", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for. You can find more brands that I worked for by scrolling down." },
+        { title: "Project H_012", description: "These are all the covers that I had designed from scratch of the Envoy magazine. Envoy is a magazine that is actively being printed and distributed today, and is sold in many bookstores nationwide and across the world, including but not limited to: United States, various regions in Europe, Canada, and Türkiye." },
         { title: "Project H_013", description: "Description coming soon." },
         { title: "Project H_014", description: "Description coming soon." }
     ];
-
     // Get modal elements
     const modal = document.getElementById('image-modal');
     const modalImage = document.getElementById('modal-image');
@@ -219,6 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show modal
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Scroll to top of modal when opened
+            modal.scrollTop = 0;
         });
     });
 
