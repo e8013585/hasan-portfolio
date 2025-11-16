@@ -202,7 +202,7 @@ body {
 
 /* About Section */
 #about {
-    padding: 6rem 2rem;
+    padding: 3rem 2rem;
     background-color: var(--card-bg);
 }
 
@@ -220,12 +220,20 @@ body {
 }
 
 .profile-img img {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary-color);
     box-shadow: var(--shadow);
+}
+
+/* For tablet view */
+@media (max-width: 992px) {
+    .profile-img img {
+        width: 125px; /* profile picture smaller on tablets */
+        height: 125px;
+    }
 }
 
 .about-content {
@@ -266,7 +274,7 @@ body {
 
 /* Projects Section */
 #projects {
-    padding: 6rem 2rem;
+    padding: 3rem 2rem;
 }
 
 .projects-container {
@@ -337,7 +345,7 @@ body {
 
 /* Contact Section */
 #contact {
-    padding: 6rem 2rem;
+    padding: 3rem 2rem;
     background-color: var(--card-bg);
 }
 
@@ -610,7 +618,7 @@ footer {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Modal Styles */
+/* Updated Modal Styles - Entire modal is scrollable */
 .modal {
     display: none;
     position: fixed;
@@ -622,6 +630,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease;
+    overflow-y: auto; /* Make entire modal scrollable */
 }
 
 .modal-content {
@@ -634,13 +643,10 @@ footer {
     max-width: 800px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.4s ease;
+    /* Remove flex properties to allow natural scrolling */
 }
 
-@keyframes slideIn {
-    from {transform: translateY(-50px); opacity: 0;}
-    to {transform: translateY(0); opacity: 1;}
-}
-
+/* Remove max-height restrictions */
 .modal-image {
     width: 100%;
     height: auto;
@@ -651,6 +657,7 @@ footer {
 .modal-description {
     padding: 2rem;
     color: var(--text-color);
+    /* Remove overflow-y and max-height */
 }
 
 .modal-description h3 {
@@ -662,6 +669,7 @@ footer {
 .modal-description p {
     font-size: 1.1rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 .close {
@@ -683,19 +691,11 @@ footer {
     transform: scale(1.2);
 }
 
-/* Mobile Responsive */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects-grid img {
-        height: 250px;
-    }
-    
     .modal-content {
         width: 95%;
-        margin: 10% auto;
+        margin: 5% auto;
     }
     
     .modal-description {
@@ -705,4 +705,40 @@ footer {
     .modal-description h3 {
         font-size: 1.5rem;
     }
+}
+
+/* Brands Section */
+#brands {
+    padding: 3rem 2rem;
+    background-color: var(--card-bg);
+}
+
+.brands-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brands-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.brands-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brands-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.brands-image-container img:hover {
+    transform: scale(1.02);
 }
