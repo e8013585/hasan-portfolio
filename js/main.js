@@ -200,19 +200,20 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Project descriptions (you can customize these)
     const projectDescriptions = [
-        { title: "Featured Project", description: "Banner" },
-        { title: "Project H_002", description: "Description coming soon." },
-        { title: "Project H_003", description: "Description coming soon." },
-        { title: "Project H_004", description: "Description coming soon." },
-        { title: "Project H_006", description: "Description coming soon." },
-        { title: "Project H_007", description: "Description coming soon." },
-        { title: "Project H_008", description: "Description coming soon." },
-        { title: "Project H_009", description: "Description coming soon." },
-        { title: "Project H_010", description: "Description coming soon." },
-        { title: "Project H_011", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for. You can find more brands that I worked for by scrolling down." },
-        { title: "Project H_012", description: "These are all the covers that I had designed from scratch of the Envoy magazine. Envoy is a magazine that is actively being printed and distributed today, and is sold in many bookstores nationwide and across the world, including but not limited to: United States, various regions in Europe, Canada, and Türkiye." },
-        { title: "Project H_013", description: "Description coming soon." },
-        { title: "Project H_014", description: "Description coming soon." }
+        { title: "Banner - Featured Project", description: "Banner" },
+        { title: "Billboard", description: "Billboard" },
+        { title: "Illustration", description: "Illustration" },
+        { title: "Fair/Showcase Organization Billboard", description: "Fair/Showcase Organization Billboard" },
+        { title: "Print Magazine Design", description: "Print Magazine Design" },
+        { title: "A page for the presentation of an agency", description: "A page for the presentation of an agency" },
+        { title: "A page of a Technology magazine", description: "A page of a Technology magazine" },
+        { title: "Application UI", description: "Application UI" },
+        { title: "Promotion/Advertisement design", description: "Promotion/Advertisement design" },
+        { title: "Web Design", description: "Web Design" },
+        { title: "Many Logo Designs", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for. You can find more brands that I worked for by scrolling down." },
+        { title: "Magazine covers (for Envoy). (Made in the US)", description: "These are all the covers that I had designed from scratch of the Envoy magazine. Envoy is a magazine that is actively being printed and distributed today, and is sold in many bookstores nationwide and across the world, including but not limited to: United States, various regions in Europe, Canada, and Türkiye." },
+        { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
+        { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." }
     ];
     // Get modal elements
     const modal = document.getElementById('image-modal');
