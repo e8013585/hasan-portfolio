@@ -108,29 +108,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Experience chart
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
     const ctx = document.getElementById('experienceChart').getContext('2d');
+
+    // Function to detect theme colors
+    function getChartColors() {
+        const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
+        return {
+            textColor: isDarkMode ? '#f1f5f9' : '#333',
+            gridColor: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+            tickColor: isDarkMode ? '#f1f5f9' : '#333'
+        };
+    }
+
+    // Correct: store colors in a separate variable
+    let chartColors = getChartColors();
+
+    // Data for the experience chart
     const experienceData = {
         labels: [
-            'Adobe Illustrator',     // 37
-            'Adobe Photoshop',       // 35
-            'Adobe Acrobat',         // 31
-            'Adobe InDesign',        // 25
-            'Adobe Creative Suite',  // 23
-            'Adobe Bridge',          // 17
-            'Adobe Creative Cloud',  // 14
-            'Adobe Media Encoder',   // 11
-            'Microsoft Word',        // 10
-            'QuarkXPress',           // 8
-            'Adobe Premiere Pro',    // 7
-            'Adobe After Effects',   // 6
-            'Microsoft Excel',       // 5
-            'Adobe Audition'         // 4
+            'Adobe Illustrator',
+            'Adobe Photoshop',
+            'Adobe Acrobat',
+            'Adobe InDesign',
+            'Adobe Creative Suite',
+            'Adobe Bridge',
+            'Adobe Creative Cloud',
+            'Adobe Media Encoder',
+            'Microsoft Word',
+            'Microsoft PowerPoint',
+            'QuarkXPress',
+            'Adobe Premiere Pro',
+            'Adobe After Effects',
+            'Microsoft Excel',
+            'Adobe Audition',
+            'Corel Painter'
         ],
 
         datasets: [{
             label: 'Years of Experience',
-            data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 8, 7, 6, 5, 4],
+            data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 9, 8, 7, 6, 5, 4, 3],
 
             backgroundColor: [
                 'rgba(255,154,0,1)',    // Illustrator
@@ -142,11 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 'rgba(218,31,38,1)',    // Creative Cloud
                 'rgba(138,43,226,1)',   // Media Encoder
                 'rgba(43,87,154,1)',    // Word
+                'rgba(235,72,36,1)',    // PowerPoint
                 'rgba(0,174,239,1)',    // QuarkXPress
                 'rgba(153,51,255,1)',   // Premiere Pro
                 'rgba(166,124,255,1)',  // After Effects
                 'rgba(33,115,70,1)',    // Excel
-                'rgba(0,229,229,1)'     // Audition
+                'rgba(0,229,229,1)',    // Audition
+                'rgba(228,82,60,1)'     // Corel Painter
             ],
 
             borderColor: [
@@ -159,57 +179,89 @@ document.addEventListener('DOMContentLoaded', function() {
                 'rgba(218,31,38,1)',
                 'rgba(138,43,226,1)',
                 'rgba(43,87,154,1)',
+                'rgba(235,72,36,1)',
                 'rgba(0,174,239,1)',
                 'rgba(153,51,255,1)',
                 'rgba(166,124,255,1)',
                 'rgba(33,115,70,1)',
-                'rgba(0,229,229,1)'
+                'rgba(0,229,229,1)',
+                'rgba(228,82,60,1)'
             ],
 
             borderWidth: 1
         }]
     };
 
+    // Chart.js instance
     const experienceChart = new Chart(ctx, {
         type: 'bar',
         data: experienceData,
         options: {
-            indexAxis: 'y', // horizontal bar chart
+            indexAxis: 'y',
+
             scales: {
                 x: {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Years of Experience'
+                        text: 'Years of Experience',
+                        color: chartColors.textColor
                     },
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: chartColors.tickColor
+                    },
+                    grid: {
+                        color: chartColors.gridColor
                     }
                 },
                 y: {
                     ticks: {
-                        font: {
-                            size: 14
-                        }
+                        font: { size: 14 },
+                        color: chartColors.tickColor
+                    },
+                    grid: {
+                        color: chartColors.gridColor
                     }
                 }
-            },
+            }, // ← Fixed missing brace
+
             plugins: {
-                legend: {
-                    display: false
-                },
+                legend: { display: false },
                 tooltip: {
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return `${context.parsed.x} years`;
                         }
                     }
                 }
             },
+
             responsive: true,
             maintainAspectRatio: false
         }
     });
+
+    // Update chart colors on theme change
+    function updateChartColors() {
+        chartColors = getChartColors();
+
+        experienceChart.options.scales.x.ticks.color = chartColors.tickColor;
+        experienceChart.options.scales.y.ticks.color = chartColors.tickColor;
+        experienceChart.options.scales.x.title.color = chartColors.textColor;
+        experienceChart.options.scales.x.grid.color = chartColors.gridColor;
+        experienceChart.options.scales.y.grid.color = chartColors.gridColor;
+
+        experienceChart.update();
+    }
+
+    // Theme toggle listener
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            setTimeout(updateChartColors, 100);
+        });
+    }
 });
 
 // Mobile Device Detection and Background Image Switching
