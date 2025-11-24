@@ -110,32 +110,62 @@ document.addEventListener('DOMContentLoaded', () => {
 // Experience chart
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('experienceChart').getContext('2d');
-    
     const experienceData = {
-        labels: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Creative Suite', 'Adobe Creative Cloud', 'QuarkXPress', 'Microsoft Excel', 'Adobe InDesign', 'Adobe Acrobat'],
+        labels: [
+            'Adobe Illustrator',     // 37
+            'Adobe Photoshop',       // 35
+            'Adobe Acrobat',         // 31
+            'Adobe InDesign',        // 25
+            'Adobe Creative Suite',  // 23
+            'Adobe Bridge',          // 17
+            'Adobe Creative Cloud',  // 14
+            'Adobe Media Encoder',   // 11
+            'Microsoft Word',        // 10
+            'QuarkXPress',           // 8
+            'Adobe Premiere Pro',    // 7
+            'Adobe After Effects',   // 6
+            'Microsoft Excel',       // 5
+            'Adobe Audition'         // 4
+        ],
+
         datasets: [{
             label: 'Years of Experience',
-            data: [35, 37, 23, 14, 3, 2, 25, 31], 
+            data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 8, 7, 6, 5, 4],
+
             backgroundColor: [
-                'rgba(37, 99, 235, 0.7)',
-                'rgba(30, 64, 175, 0.7)',
-                'rgba(249, 115, 22, 0.7)',
-                'rgba(245, 158, 11, 0.7)',
-                'rgba(16, 185, 129, 0.7)',
-                'rgba(139, 92, 246, 0.7)',
-                'rgba(236, 72, 153, 0.7)',
-                'rgba(244, 63, 94, 0.7)'
+                'rgba(255,154,0,1)',    // Illustrator
+                'rgba(49,168,255,1)',   // Photoshop
+                'rgba(255,0,0,1)',      // Acrobat
+                'rgba(255,51,102,1)',   // InDesign
+                'rgba(120,120,120,1)',  // Creative Suite
+                'rgba(0,0,0,1)',        // Bridge
+                'rgba(218,31,38,1)',    // Creative Cloud
+                'rgba(138,43,226,1)',   // Media Encoder
+                'rgba(43,87,154,1)',    // Word
+                'rgba(0,174,239,1)',    // QuarkXPress
+                'rgba(153,51,255,1)',   // Premiere Pro
+                'rgba(166,124,255,1)',  // After Effects
+                'rgba(33,115,70,1)',    // Excel
+                'rgba(0,229,229,1)'     // Audition
             ],
+
             borderColor: [
-                'rgba(37, 99, 235, 1)',
-                'rgba(30, 64, 175, 1)',
-                'rgba(249, 115, 22, 1)',
-                'rgba(245, 158, 11, 1)',
-                'rgba(16, 185, 129, 1)',
-                'rgba(139, 92, 246, 1)',
-                'rgba(236, 72, 153, 1)',
-                'rgba(244, 63, 94, 1)'
+                'rgba(255,154,0,1)',
+                'rgba(49,168,255,1)',
+                'rgba(255,0,0,1)',
+                'rgba(255,51,102,1)',
+                'rgba(120,120,120,1)',
+                'rgba(0,0,0,1)',
+                'rgba(218,31,38,1)',
+                'rgba(138,43,226,1)',
+                'rgba(43,87,154,1)',
+                'rgba(0,174,239,1)',
+                'rgba(153,51,255,1)',
+                'rgba(166,124,255,1)',
+                'rgba(33,115,70,1)',
+                'rgba(0,229,229,1)'
             ],
+
             borderWidth: 1
         }]
     };
@@ -218,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // More projects
         { title: "Project 15", description: "Description coming soon" },
         { title: "Project 16", description: "Description coming soon" },
-        { title: "Project 17", description: "Description coming soon" },
+        { title: "Project 17", description: "A promotion/advertisement for Blue Jade Construction Inc." },
         { title: "Project 18", description: "Description coming soon" },
         { title: "Project 19", description: "Description coming soon" },
         { title: "Project 20", description: "Description coming soon" },
