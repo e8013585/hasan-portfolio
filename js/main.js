@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Project Showcase with Modal Popup
 document.addEventListener('DOMContentLoaded', function() {
-    // Project descriptions (you can customize these)
+    // Project descriptions
     const projectDescriptions = [
         { title: "Banner - Featured Project", description: "Banner" },
         { title: "Billboard", description: "Billboard" },
@@ -213,8 +213,32 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Many Logo Designs", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for. You can find more brands that I worked for by scrolling down." },
         { title: "Magazine covers (for Envoy). (Made in the US)", description: "These are all the covers that I had designed from scratch of the Envoy magazine. Envoy is a magazine that is actively being printed and distributed today, and is sold in many bookstores nationwide and across the world, including but not limited to: United States, various regions in Europe, Canada, and Türkiye." },
         { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
-        { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." }
-    ];
+        { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
+        
+        // More projects
+        { title: "Project 15", description: "Description coming soon" },
+        { title: "Project 16", description: "Description coming soon" },
+        { title: "Project 17", description: "Description coming soon" },
+        { title: "Project 18", description: "Description coming soon" },
+        { title: "Project 19", description: "Description coming soon" },
+        { title: "Project 20", description: "Description coming soon" },
+        { title: "Project 21", description: "Description coming soon" },
+        { title: "Project 22", description: "Description coming soon" },
+        { title: "Project 23", description: "Description coming soon" },
+        { title: "Project 24", description: "Description coming soon" },
+        { title: "Project 25", description: "Description coming soon" },
+        { title: "Project 26", description: "Description coming soon" },
+        { title: "Project 27", description: "Description coming soon" },
+        { title: "Project 28", description: "Description coming soon" },
+        { title: "Project 29", description: "Description coming soon" },
+        { title: "Project 30", description: "Description coming soon" },
+        { title: "Project 31", description: "Description coming soon" },
+        { title: "Project 32", description: "Description coming soon" },
+        { title: "Project 33", description: "Description coming soon" },
+        { title: "Project 34", description: "Description coming soon" },
+        { title: "Project 35", description: "Description coming soon" },
+        { title: "Project 36", description: "Description coming soon" }
+];
     // Get modal elements
     const modal = document.getElementById('image-modal');
     const modalImage = document.getElementById('modal-image');
