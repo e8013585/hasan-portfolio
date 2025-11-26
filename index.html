@@ -5,47 +5,72 @@
     <meta charset="UTF-8">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e8013585.github.io/hasan-portfolio/">
-    <meta property="og:title" content="Professional Portfolio">
-    <meta property="og:description" content="Explore my professional work and projects">
+    <meta property="og:title" content="Hasan Bayramoglu | Creative Director & Graphic Designer">
+    <meta property="og:description" content="35+ years of experience in creative direction, art direction, and graphic design">
     <meta property="og:image" content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://e8013585.github.io/hasan-portfolio/">
-    <meta property="twitter:title" content="Professional Portfolio">
-    <meta property="twitter:description" content="Explore my professional work and projects">
+    <meta property="twitter:title" content="Hasan Bayramoglu | Creative Director & Graphic Designer">
+    <meta property="twitter:description" content="35+ years of experience in creative direction, art direction, and graphic design">
     <meta property="twitter:image" content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
-    <meta property="og:image:alt" content="Professional Portfolio Preview">
-    <title>Professional Portfolio</title>
+    <meta property="og:image:alt" content="Hasan Bayramoglu Portfolio Preview">
+    <title>Hasan Bayramoglu | Graphic Designer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Cursor Follower -->
+    <div class="cursor-follower"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">HB</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Portfolio</h2>
+                <a href="#hero">
+                    <span class="logo-text">HFB</span>
+                </a>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#hero" class="nav-link">Home</a>
+                    <a href="#hero" class="nav-link" data-text="Home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="#about" class="nav-link" data-text="About">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#projects" class="nav-link" data-text="Work">Work</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#brands" class="nav-link" data-text="Clients">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
                 </li>
                 <li class="nav-item theme-toggle">
-                    <button id="theme-toggle" class="theme-btn">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
                     </button>
                 </li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -55,188 +80,553 @@
 
     <!-- Hero Section -->
     <section id="hero">
+        <div class="hero-bg-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
         <div class="hero-container">
-            <h1>Hasan Bayramoglu</h1>
-            <p>Graphic Designer</p>
-            <a href="#projects" class="btn">View My Work</a>
+            <div class="hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-title">
+                    <span class="title-line">Hasan</span>
+                    <span class="title-line">Bayramoglu</span>
+                </h1>
+                <div class="hero-role">
+                    <span class="role-wrapper">
+                        <span class="role-text"></span>
+                        <span class="cursor">|</span>
+                    </span>
+                </div>
+                <p class="hero-description">Transforming visions into visual masterpieces for over 35 years</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="35">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Trusted Clients</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
+        <div class="section-header">
+            <span class="section-subtitle">Get to know me</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
         <div class="about-container">
-            <div class="profile-img">
-                <img src="assets/profilepicture.jpg" alt="Profile Photo">
+            <div class="about-image-wrapper">
+                <div class="about-image-frame">
+                    <div class="image-decoration"></div>
+                    <img src="assets/profilepicture.jpg" alt="Hasan Bayramoglu" class="about-image">
+                </div>
+                <div class="about-badge">
+                    <span class="badge-number">35+</span>
+                    <span class="badge-text">Years of Excellence</span>
+                </div>
             </div>
             <div class="about-content">
-                <h2>About Me</h2>
-                <p>Hello! I'm Hasan, a passionate creative director, art director, and graphic designer with over 35 years of experience creating modern graphic designs. I specialize in Adobe tools, magazine design, and have a keen eye for design and detail.</p>
-                <!-- <p>This will be the second line</p> -->
+                <div class="about-intro">
+                    <h3>Creative Director & Graphic Designer</h3>
+                    <p>Hello! I'm Hasan, a passionate creative director, art director, and graphic designer with over 35 years of experience creating modern graphic designs. I specialize in Adobe tools, magazine design, and have a keen eye for design and detail.</p>
+                    <p>My journey in design has allowed me to work with prestigious brands and publications, crafting visual narratives that resonate with audiences worldwide.</p>
+                </div>
                 
-                <h3>Skills</h3>
-                <div class="skills-container">
-                    <div class="skill">Adobe Creative Cloud</div>
-                    <div class="skill">Adobe Creative Suite</div>
-                    <div class="skill">Corel Painter</div>
-                    <div class="skill">Adobe InDesign</div>
-                    <div class="skill">Adobe Photoshop</div>
-                    <div class="skill">UI/UX Design</div>
-                    <div class="skill">Adobe Illustrator</div>
-                    <div class="skill">Adobe Bridge</div>
-                    <div class="skill">QuarkXPress</div>
-                    <div class="skill">Adobe Audition</div>
-                    <div class="skill">Microsoft Excel</div>
-                    <div class="skill">Microsoft PowerPoint</div>
-                    <div class="skill">Microsoft Word</div>
-                    <div class="skill">Adobe Media Encoder</div>
-                    <div class="skill">Adobe Acrobat</div>
-                    <div class="skill">Adobe After Effects</div>
-                    <div class="skill">Turkish language proficiency (fluent)</div>
-                    <div class="skill">Adobe FreeHand</div>
+                <div class="skills-section">
+                    <h4>
+                        <i class="fas fa-palette"></i>
+                        Core Competencies
+                    </h4>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h5>Design Software</h5>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Adobe Creative Cloud</span>
+                                <span class="skill-tag">Adobe InDesign</span>
+                                <span class="skill-tag">Adobe Photoshop</span>
+                                <span class="skill-tag">Adobe Illustrator</span>
+                                <span class="skill-tag">Adobe After Effects</span>
+                                <span class="skill-tag">Adobe Premiere Pro</span>
+                                <span class="skill-tag">QuarkXPress</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5>Expertise</h5>
+                            <div class="skill-tags">
+                                <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">Magazine Layout</span>
+                                <span class="skill-tag">Brand Identity</span>
+                                <span class="skill-tag">Print Design</span>
+                                <span class="skill-tag">Digital Media</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5>Additional Skills</h5>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Adobe Bridge</span>
+                                <span class="skill-tag">Adobe Audition</span>
+                                <span class="skill-tag">Corel Painter</span>
+                                <span class="skill-tag">Microsoft Office Suite</span>
+                                <span class="skill-tag">Turkish (Fluent)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Experience Section -->
-<section id="experience">
-    <div class="experience-container">
-        <h2>Technical Experience</h2>
-        <div class="chart-container">
-            <canvas id="experienceChart"></canvas>
+    <section id="experience">
+        <div class="section-header">
+            <span class="section-subtitle">My Journey</span>
+            <h2 class="section-title">Technical Experience</h2>
         </div>
-    </div>
-</section>
+        <div class="experience-container">
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="experienceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
-<section id="projects">
-    <div class="projects-container">
-        <h2>Projects</h2>
-        <div class="projects-showcase">
-            <!-- Banner Image -->
-            <div class="banner-image">
-                <img src="assets/H_001.jpg" alt="Featured Project" class="project-img" data-index="0">
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-subtitle">My Portfolio</span>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-description">A curated selection of projects spanning over three decades of creative excellence</p>
+        </div>
+        <div class="projects-container">
+            <div class="projects-showcase">
+                <!-- Featured Banner Image -->
+                <div class="featured-project">
+                    <div class="featured-image">
+                        <img src="assets/H_001.jpg" alt="Featured Project" class="project-img" data-index="0">
+                        <div class="featured-overlay">
+                            <span class="featured-tag">Featured Work</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                </div>
+                
+                <!-- Masonry Grid -->
+                <div class="projects-masonry">
+                    <div class="project-item" data-category="print">
+                        <img src="assets/H_002.jpg" alt="Project 2" class="project-img" data-index="1">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/H_003.jpg" alt="Project 3" class="project-img" data-index="2">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/H_004.jpg" alt="Project 4" class="project-img" data-index="3">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/H_005.jpg" alt="Project 5" class="project-img" data-index="4">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/H_006.jpg" alt="Project 6" class="project-img" data-index="5">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/H_007.jpg" alt="Project 7" class="project-img" data-index="6">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/H_008.jpg" alt="Project 8" class="project-img" data-index="7">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/H_009.jpg" alt="Project 9" class="project-img" data-index="8">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/H_010.jpg" alt="Project 10" class="project-img" data-index="9">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/H_011.jpg" alt="Project 11" class="project-img" data-index="10">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/H_012.jpg" alt="Project 12" class="project-img" data-index="11">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/H_013.jpg" alt="Project 13" class="project-img" data-index="12">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/H_014.jpg" alt="Project 14" class="project-img" data-index="13">
+                        <div class="project-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Images -->
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (1).jpg" alt="Project 15" class="project-img" data-index="14">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (2).jpg" alt="Project 16" class="project-img" data-index="15">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (3).jpg" alt="Project 17" class="project-img" data-index="16">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (4).jpg" alt="Project 18" class="project-img" data-index="17">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (5).jpg" alt="Project 19" class="project-img" data-index="18">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (6).jpg" alt="Project 20" class="project-img" data-index="19">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (7).jpg" alt="Project 21" class="project-img" data-index="20">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (8).jpg" alt="Project 22" class="project-img" data-index="21">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (9).jpg" alt="Project 23" class="project-img" data-index="22">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (10).jpg" alt="Project 24" class="project-img" data-index="23">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (11).jpg" alt="Project 25" class="project-img" data-index="24">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (12).jpg" alt="Project 26" class="project-img" data-index="25">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (13).jpg" alt="Project 27" class="project-img" data-index="26">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (14).jpg" alt="Project 28" class="project-img" data-index="27">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (15).jpg" alt="Project 29" class="project-img" data-index="28">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (16).jpg" alt="Project 30" class="project-img" data-index="29">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (17).jpg" alt="Project 31" class="project-img" data-index="30">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (18).jpg" alt="Project 32" class="project-img" data-index="31">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (19).jpg" alt="Project 33" class="project-img" data-index="32">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/image (20).jpg" alt="Project 34" class="project-img" data-index="33">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/image (21).jpg" alt="Project 35" class="project-img" data-index="34">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/image (22).jpg" alt="Project 36" class="project-img" data-index="35">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    
+                    <!-- More Images -->
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (1).jpg" alt="Project 37" class="project-img" data-index="36">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (2).jpg" alt="Project 38" class="project-img" data-index="37">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (3).jpg" alt="Project 39" class="project-img" data-index="38">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (4).jpg" alt="Project 40" class="project-img" data-index="39">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (5).jpg" alt="Project 41" class="project-img" data-index="40">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (6).jpg" alt="Project 42" class="project-img" data-index="41">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (7).jpg" alt="Project 43" class="project-img" data-index="42">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (8).jpg" alt="Project 44" class="project-img" data-index="43">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (9).jpg" alt="Project 45" class="project-img" data-index="44">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (10).jpg" alt="Project 46" class="project-img" data-index="45">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (11).jpg" alt="Project 47" class="project-img" data-index="46">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (12).jpg" alt="Project 48" class="project-img" data-index="47">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (13).jpg" alt="Project 49" class="project-img" data-index="48">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (14).jpg" alt="Project 50" class="project-img" data-index="49">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (15).jpg" alt="Project 51" class="project-img" data-index="50">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (16).jpg" alt="Project 52" class="project-img" data-index="51">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (17).jpg" alt="Project 53" class="project-img" data-index="52">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (18).jpg" alt="Project 54" class="project-img" data-index="53">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (19).jpg" alt="Project 55" class="project-img" data-index="54">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (20).jpg" alt="Project 56" class="project-img" data-index="55">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (21).jpg" alt="Project 57" class="project-img" data-index="56">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (22).jpg" alt="Project 58" class="project-img" data-index="57">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (23).jpg" alt="Project 59" class="project-img" data-index="58">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (24).jpg" alt="Project 60" class="project-img" data-index="59">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (25).jpg" alt="Project 61" class="project-img" data-index="60">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (26).jpg" alt="Project 62" class="project-img" data-index="61">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (27).jpg" alt="Project 63" class="project-img" data-index="62">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (28).jpg" alt="Project 64" class="project-img" data-index="63">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/moreimages (29).jpg" alt="Project 65" class="project-img" data-index="64">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/moreimages (30).jpg" alt="Project 66" class="project-img" data-index="65">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/moreimages (31).jpg" alt="Project 67" class="project-img" data-index="66">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    
+                    <!-- MMore Images -->
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/mmoreimages (1).jpg" alt="Project 68" class="project-img" data-index="67">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/mmoreimages (2).jpg" alt="Project 69" class="project-img" data-index="68">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/mmoreimages (3).jpg" alt="Project 70" class="project-img" data-index="69">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/mmoreimages (4).jpg" alt="Project 71" class="project-img" data-index="70">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/mmoreimages (5).jpg" alt="Project 72" class="project-img" data-index="71">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/mmoreimages (6).jpg" alt="Project 73" class="project-img" data-index="72">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/mmoreimages (7).jpg" alt="Project 74" class="project-img" data-index="73">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/mmoreimages (8).jpg" alt="Project 75" class="project-img" data-index="74">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="print">
+                        <img src="assets/mmoreimages (9).jpg" alt="Project 76" class="project-img" data-index="75">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="branding">
+                        <img src="assets/mmoreimages (10).jpg" alt="Project 77" class="project-img" data-index="76">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="project-item" data-category="digital">
+                        <img src="assets/mmoreimages (11).jpg" alt="Project 78" class="project-img" data-index="77">
+                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                </div>
             </div>
-            
-<!-- Grid of Images -->
-<div class="projects-grid">
-    <!-- Images H_002.jpg to H_014.jpg -->
-    <img src="assets/H_002.jpg" alt="Project 2" class="project-img" data-index="1">
-    <img src="assets/H_003.jpg" alt="Project 3" class="project-img" data-index="2">
-    <img src="assets/H_004.jpg" alt="Project 4" class="project-img" data-index="3">
-    <img src="assets/H_005.jpg" alt="Project 5" class="project-img" data-index="4">
-    <img src="assets/H_006.jpg" alt="Project 6" class="project-img" data-index="5">
-    <img src="assets/H_007.jpg" alt="Project 7" class="project-img" data-index="6">
-    <img src="assets/H_008.jpg" alt="Project 8" class="project-img" data-index="7">
-    <img src="assets/H_009.jpg" alt="Project 9" class="project-img" data-index="8">
-    <img src="assets/H_010.jpg" alt="Project 10" class="project-img" data-index="9">
-    <img src="assets/H_011.jpg" alt="Project 11" class="project-img" data-index="10">
-    <img src="assets/H_012.jpg" alt="Project 12" class="project-img" data-index="11">
-    <img src="assets/H_013.jpg" alt="Project 13" class="project-img" data-index="12">
-    <img src="assets/H_014.jpg" alt="Project 14" class="project-img" data-index="13">
-    
-    <!-- New images -->
-    <img src="assets/image (1).jpg" alt="Project 15" class="project-img" data-index="14">
-    <img src="assets/image (2).jpg" alt="Project 16" class="project-img" data-index="15">
-    <img src="assets/image (3).jpg" alt="Project 17" class="project-img" data-index="16">
-    <img src="assets/image (4).jpg" alt="Project 18" class="project-img" data-index="17">
-    <img src="assets/image (5).jpg" alt="Project 19" class="project-img" data-index="18">
-    <img src="assets/image (6).jpg" alt="Project 20" class="project-img" data-index="19">
-    <img src="assets/image (7).jpg" alt="Project 21" class="project-img" data-index="20">
-    <img src="assets/image (8).jpg" alt="Project 22" class="project-img" data-index="21">
-    <img src="assets/image (9).jpg" alt="Project 23" class="project-img" data-index="22">
-    <img src="assets/image (10).jpg" alt="Project 24" class="project-img" data-index="23">
-    <img src="assets/image (11).jpg" alt="Project 25" class="project-img" data-index="24">
-    <img src="assets/image (12).jpg" alt="Project 26" class="project-img" data-index="25">
-    <img src="assets/image (13).jpg" alt="Project 27" class="project-img" data-index="26">
-    <img src="assets/image (14).jpg" alt="Project 28" class="project-img" data-index="27">
-    <img src="assets/image (15).jpg" alt="Project 29" class="project-img" data-index="28">
-    <img src="assets/image (16).jpg" alt="Project 30" class="project-img" data-index="29">
-    <img src="assets/image (17).jpg" alt="Project 31" class="project-img" data-index="30">
-    <img src="assets/image (18).jpg" alt="Project 32" class="project-img" data-index="31">
-    <img src="assets/image (19).jpg" alt="Project 33" class="project-img" data-index="32">
-    <img src="assets/image (20).jpg" alt="Project 34" class="project-img" data-index="33">
-    <img src="assets/image (21).jpg" alt="Project 35" class="project-img" data-index="34">
-    <img src="assets/image (22).jpg" alt="Project 36" class="project-img" data-index="35">
-
-    <img src="assets/moreimages (1).jpg" alt="Project 37" class="project-img" data-index="36">
-    <img src="assets/moreimages (2).jpg" alt="Project 38" class="project-img" data-index="37">
-    <img src="assets/moreimages (3).jpg" alt="Project 39" class="project-img" data-index="38">
-    <img src="assets/moreimages (4).jpg" alt="Project 40" class="project-img" data-index="39">
-    <img src="assets/moreimages (5).jpg" alt="Project 41" class="project-img" data-index="40">
-    <img src="assets/moreimages (6).jpg" alt="Project 42" class="project-img" data-index="41">
-    <img src="assets/moreimages (7).jpg" alt="Project 43" class="project-img" data-index="42">
-    <img src="assets/moreimages (8).jpg" alt="Project 44" class="project-img" data-index="43">
-    <img src="assets/moreimages (9).jpg" alt="Project 45" class="project-img" data-index="44">
-    <img src="assets/moreimages (10).jpg" alt="Project 46" class="project-img" data-index="45">
-    <img src="assets/moreimages (11).jpg" alt="Project 47" class="project-img" data-index="46">
-    <img src="assets/moreimages (12).jpg" alt="Project 48" class="project-img" data-index="47">
-    <img src="assets/moreimages (13).jpg" alt="Project 49" class="project-img" data-index="48">
-    <img src="assets/moreimages (14).jpg" alt="Project 50" class="project-img" data-index="49">
-    <img src="assets/moreimages (15).jpg" alt="Project 51" class="project-img" data-index="50">
-    <img src="assets/moreimages (16).jpg" alt="Project 52" class="project-img" data-index="51">
-    <img src="assets/moreimages (17).jpg" alt="Project 53" class="project-img" data-index="52">
-    <img src="assets/moreimages (18).jpg" alt="Project 54" class="project-img" data-index="53">
-    <img src="assets/moreimages (19).jpg" alt="Project 55" class="project-img" data-index="54">
-    <img src="assets/moreimages (20).jpg" alt="Project 56" class="project-img" data-index="55">
-    <img src="assets/moreimages (21).jpg" alt="Project 57" class="project-img" data-index="56">
-    <img src="assets/moreimages (22).jpg" alt="Project 58" class="project-img" data-index="57">
-    <img src="assets/moreimages (23).jpg" alt="Project 59" class="project-img" data-index="58">
-    <img src="assets/moreimages (24).jpg" alt="Project 60" class="project-img" data-index="59">
-    <img src="assets/moreimages (25).jpg" alt="Project 61" class="project-img" data-index="60">
-    <img src="assets/moreimages (26).jpg" alt="Project 62" class="project-img" data-index="61">
-    <img src="assets/moreimages (27).jpg" alt="Project 63" class="project-img" data-index="62">
-    <img src="assets/moreimages (28).jpg" alt="Project 64" class="project-img" data-index="63">
-    <img src="assets/moreimages (29).jpg" alt="Project 65" class="project-img" data-index="64">
-    <img src="assets/moreimages (30).jpg" alt="Project 66" class="project-img" data-index="65">
-    <img src="assets/moreimages (31).jpg" alt="Project 67" class="project-img" data-index="66">
-    <img src="assets/mmoreimages (1).jpg" alt="Project 68" class="project-img" data-index="67">
-    <img src="assets/mmoreimages (2).jpg" alt="Project 69" class="project-img" data-index="68">
-    <img src="assets/mmoreimages (3).jpg" alt="Project 70" class="project-img" data-index="69">
-    <img src="assets/mmoreimages (4).jpg" alt="Project 71" class="project-img" data-index="70">
-    <img src="assets/mmoreimages (5).jpg" alt="Project 72" class="project-img" data-index="71">
-    <img src="assets/mmoreimages (6).jpg" alt="Project 73" class="project-img" data-index="72">
-    <img src="assets/mmoreimages (7).jpg" alt="Project 74" class="project-img" data-index="73">
-    <img src="assets/mmoreimages (8).jpg" alt="Project 75" class="project-img" data-index="74">
-    <img src="assets/mmoreimages (9).jpg" alt="Project 76" class="project-img" data-index="75">
-    <img src="assets/mmoreimages (10).jpg" alt="Project 77" class="project-img" data-index="76">
-    <img src="assets/mmoreimages (11).jpg" alt="Project 78" class="project-img" data-index="77">
-</div>
-
-<!-- Popup Modal -->
-<div id="image-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img class="modal-image" id="modal-image" src="" alt="">
-        <div class="modal-description">
-            <h3 id="modal-title"></h3>
-            <p id="modal-text"></p>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Brands Section -->
-<section id="brands">
-    <div class="brands-container">
-        <h2>Some of the Brands I Worked For</h2>
-        <div class="brands-image-container">
-            <img id="brands-image" src="assets/brandsthatiworkedforlight.png" alt="Brands I worked for">
+    <!-- Brands Section -->
+    <section id="brands">
+        <div class="section-header">
+            <span class="section-subtitle">Trusted By</span>
+            <h2 class="section-title">Brands I've Worked With</h2>
         </div>
-    </div>
-</section>
+        <div class="brands-container">
+            <div class="brands-image-wrapper">
+                <img id="brands-image" src="assets/brandsthatiworkedforlight.png" alt="Brands I worked for">
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact">
+        <div class="section-header">
+            <span class="section-subtitle">Let's Connect</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-description">Have a project in mind? Let's create something amazing together.</p>
+        </div>
         <div class="contact-container">
-            <h2>Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+            <div class="contact-cards">
+                <a href="mailto:hasanbayramogluusa@gmail.com" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Me</h3>
                     <p>hasanbayramogluusa@gmail.com</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                    <span class="contact-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+                <a href="tel:+19255189256" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call/Text Me</h3>
                     <p>+1 (925) 518-9256</p>
-                </div>
+                    <span class="contact-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
@@ -244,9 +634,43 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <p>&copy; 2025 Hasan Bayramoglu. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Hasan Bayramoglu</span>
+                </div>
+                <p class="footer-tagline">Creating visual excellence since 1990</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hasan Bayramoglu. All rights reserved.</p>
+                <a href="#hero" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
         </div>
     </footer>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-nav modal-prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="modal-nav modal-next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="modal-image-wrapper">
+                <img class="modal-image" id="modal-image" src="" alt="">
+            </div>
+            <div class="modal-description">
+                <h3 id="modal-title"></h3>
+                <p id="modal-text"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
     <script src="js/projects.js"></script>
