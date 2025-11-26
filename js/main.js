@@ -350,7 +350,18 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Project 64", description: "Description coming soon" },
         { title: "Project 65", description: "Description coming soon" },
         { title: "Project 66", description: "Description coming soon" },
-        { title: "Project 67", description: "Description coming soon" }
+        { title: "Project 67", description: "Description coming soon" },
+        { title: "Project 68", description: "Description coming soon" },
+        { title: "Project 69", description: "Description coming soon" },
+        { title: "Project 70", description: "Description coming soon" },
+        { title: "Project 71", description: "Description coming soon" },
+        { title: "Project 72", description: "Description coming soon" },
+        { title: "Project 73", description: "Description coming soon" },
+        { title: "Project 74", description: "Description coming soon" },
+        { title: "Project 75", description: "Description coming soon" },
+        { title: "Project 76", description: "Description coming soon" },
+        { title: "Project 77", description: "Description coming soon" },
+        { title: "Project 78", description: "Description coming soon" }
 ];
     // Get modal elements
     const modal = document.getElementById('image-modal');
