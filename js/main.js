@@ -1,150 +1,190 @@
 // =========================================
 // PORTFOLIO WEBSITE - MAIN JAVASCRIPT
-// Revamped with modern features while
-// retaining all original functionality
 // =========================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all modules
-    initLoader();
-    initCursor();
-    initTheme();
-    initNavigation();
-    initHeroAnimations();
-    initScrollAnimations();
-    initExperienceChart();
-    initMobileDetection();
-    initProjectModal();
+document.addEventListener('DOMContentLoaded', function() {
+    var initFunctions = [
+        ['Loader', initLoader],
+        ['Cursor', initCursor],
+        ['Theme', initTheme],
+        ['Navigation', initNavigation],
+        ['HeroAnimations', initHeroAnimations],
+        ['ScrollAnimations', initScrollAnimations],
+        ['ExperienceChart', initExperienceChart],
+        ['MobileDetection', initMobileDetection],
+        ['ProjectModal', initProjectModal],
+        ['EnvoyGallery', initEnvoyGallery]
+    ];
+
+    for (var i = 0; i < initFunctions.length; i++) {
+        try {
+            initFunctions[i][1]();
+        } catch (e) {
+            console.error('Error in ' + initFunctions[i][0] + ':', e);
+        }
+    }
+
+    // Hide broken images
+    var allImages = document.querySelectorAll('img');
+    for (var j = 0; j < allImages.length; j++) {
+        allImages[j].addEventListener('error', function() {
+            var parent = this.closest('.envoy-page-item, .envoy-cover-slide');
+            if (parent) {
+                parent.style.display = 'none';
+            }
+        });
+    }
 });
 
 // =========================================
 // LOADING SCREEN
 // =========================================
 function initLoader() {
-    const loader = document.querySelector('.loader');
-    
+    var loader = document.querySelector('.loader');
     if (!loader) return;
-    
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }, 1800);
-    });
+
+    var hasHidden = false;
+
+    function hideLoader() {
+        if (hasHidden) return;
+        hasHidden = true;
+
+        loader.classList.add('hidden');
+        loader.style.pointerEvents = 'none';
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+
+        document.body.style.overflow = '';
+
+        setTimeout(function() {
+            loader.style.display = 'none';
+            if (!document.querySelector('.nav-menu.active') &&
+                !document.querySelector('.modal.active') &&
+                (!document.getElementById('image-modal') ||
+                 document.getElementById('image-modal').style.display !== 'block')) {
+                document.body.style.overflow = '';
+            }
+        }, 600);
+    }
+
+    setTimeout(hideLoader, 3500);
+
+    if (document.readyState === 'complete') {
+        setTimeout(hideLoader, 1800);
+    } else {
+        window.addEventListener('load', function() {
+            setTimeout(hideLoader, 1800);
+        });
+    }
+
+    var interactionEvents = ['click', 'touchstart', 'keydown', 'scroll'];
+    function onUserInteraction() {
+        setTimeout(function() {
+            if (!hasHidden) {
+                hideLoader();
+            }
+        }, 500);
+
+        for (var i = 0; i < interactionEvents.length; i++) {
+            document.removeEventListener(interactionEvents[i], onUserInteraction);
+        }
+    }
+
+    setTimeout(function() {
+        if (!hasHidden) {
+            for (var i = 0; i < interactionEvents.length; i++) {
+                document.addEventListener(interactionEvents[i], onUserInteraction, { passive: true });
+            }
+        }
+    }, 2000);
 }
 
 // =========================================
 // CUSTOM CURSOR
 // =========================================
 function initCursor() {
-    const cursor = document.querySelector('.cursor-follower');
-    
+    var cursor = document.querySelector('.cursor-follower');
     if (!cursor || window.innerWidth < 768) return;
-    
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
+
+    var mouseX = 0, mouseY = 0;
+    var cursorX = 0, cursorY = 0;
+
+    document.addEventListener('mousemove', function(e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
         cursor.classList.add('active');
     });
-    
-    // Smooth cursor following
+
     function animateCursor() {
-        const dx = mouseX - cursorX;
-        const dy = mouseY - cursorY;
-        
-        cursorX += dx * 0.1;
-        cursorY += dy * 0.1;
-        
+        cursorX += (mouseX - cursorX) * 0.1;
+        cursorY += (mouseY - cursorY) * 0.1;
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
-        
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
-    
-    // Hover effects on interactive elements (excluding project images for clean tilt effect)
-    const hoverElements = document.querySelectorAll('a, button, .contact-card, .skill-tag, .nav-link');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-    
-    // Hide cursor when leaving window
-    document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+
+    var hoverElements = document.querySelectorAll('a, button, .contact-card, .skill-tag, .nav-link');
+    for (var i = 0; i < hoverElements.length; i++) {
+        hoverElements[i].addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
+        hoverElements[i].addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
+    }
+
+    document.addEventListener('mouseleave', function() { cursor.classList.remove('active'); });
 }
 
 // =========================================
-// THEME TOGGLE FUNCTIONALITY
+// THEME TOGGLE
 // =========================================
 function initTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle?.querySelector('i.fa-moon, i.fa-sun') || themeToggle?.querySelector('i');
-    const brandsImage = document.getElementById('brands-image');
-    
-    // Check for saved theme preference or respect OS preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Determine initial theme
-    let currentTheme;
-    if (savedTheme) {
-        currentTheme = savedTheme;
-    } else if (prefersDarkScheme.matches) {
-        currentTheme = 'dark';
-    } else {
-        currentTheme = 'light';
-    }
-    
-    // Apply initial theme
+    var themeToggle = document.getElementById('theme-toggle');
+    var brandsImage = document.getElementById('brands-image');
+
+    var savedTheme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    var currentTheme = savedTheme || (prefersDark.matches ? 'dark' : 'light');
     applyTheme(currentTheme);
-    
-    // Toggle theme when button is clicked
-    themeToggle?.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const newTheme = current === 'dark' ? 'light' : 'dark';
-        
-        applyTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Update chart colors if chart exists
-        if (window.experienceChart) {
-            setTimeout(updateChartColors, 100);
-        }
-    });
-    
-    // Apply theme function
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
+            var newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            if (window.experienceChart) {
+                setTimeout(updateChartColors, 100);
+            }
+        });
+    }
+
     function applyTheme(theme) {
-        // Apply to both documentElement and body for compatibility
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
-        
-        // Update theme icon
-        if (themeIcon) {
-            if (theme === 'dark') {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
+
+        if (themeToggle) {
+            var moonIcon = themeToggle.querySelector('.fa-moon');
+            var sunIcon = themeToggle.querySelector('.fa-sun');
+            if (moonIcon && sunIcon) {
+                if (theme === 'dark') {
+                    moonIcon.style.display = 'none';
+                    sunIcon.style.display = 'inline-block';
+                } else {
+                    moonIcon.style.display = 'inline-block';
+                    sunIcon.style.display = 'none';
+                }
             }
         }
-        
-        // Update brands image
-        updateBrandsImage(theme);
-    }
-    
-    // Update brands image based on theme
-    function updateBrandsImage(theme) {
+
         if (brandsImage) {
-            brandsImage.src = theme === 'dark' 
-                ? 'assets/brandsthatiworkedfordark.png' 
+            brandsImage.src = theme === 'dark'
+                ? 'assets/brandsthatiworkedfordark.png'
                 : 'assets/brandsthatiworkedforlight.png';
         }
     }
-    
-    // Listen for OS theme changes
-    prefersDarkScheme.addEventListener('change', (e) => {
+
+    prefersDark.addEventListener('change', function(e) {
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
         }
@@ -155,97 +195,98 @@ function initTheme() {
 // NAVIGATION
 // =========================================
 function initNavigation() {
-    const navbar = document.querySelector('.navbar');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Scroll effect - add scrolled class for styling
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar?.classList.add('scrolled');
-        } else {
-            navbar?.classList.remove('scrolled');
+    var navbar = document.querySelector('.navbar');
+    var hamburger = document.querySelector('.hamburger');
+    var navMenu = document.querySelector('.nav-menu');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY || window.pageYOffset;
+
+        if (navbar) {
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
-        
-        lastScroll = currentScroll;
+
+        for (var s = 0; s < sections.length; s++) {
+            var section = sections[s];
+            var sectionTop = section.offsetTop - 100;
+            var sectionHeight = section.offsetHeight;
+            var sectionId = section.getAttribute('id');
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                for (var l = 0; l < navLinks.length; l++) {
+                    navLinks[l].classList.remove('active');
+                    if (navLinks[l].getAttribute('href') === '#' + sectionId) {
+                        navLinks[l].classList.add('active');
+                    }
+                }
+            }
+        }
     });
-    
-    // Mobile menu toggle
-    hamburger?.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu?.classList.toggle('active');
-        document.body.style.overflow = navMenu?.classList.contains('active') ? 'hidden' : '';
-    });
-    
-    // Close menu on link click
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger?.classList.remove('active');
-            navMenu?.classList.remove('active');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            if (navMenu) navMenu.classList.toggle('active');
+            document.body.style.overflow = (navMenu && navMenu.classList.contains('active')) ? 'hidden' : '';
+        });
+    }
+
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+            if (hamburger) hamburger.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('active');
             document.body.style.overflow = '';
         });
-    });
-    
-    // Active link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    
-    function setActiveLink() {
-        const scrollY = window.pageYOffset;
-        
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+    }
+
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for (var a = 0; a < anchors.length; a++) {
+        anchors[a].addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+
+            if (!href || href === '#' || href.length < 2) {
+                e.preventDefault();
+                return;
+            }
+
+            try {
+                var target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (err) {
+                e.preventDefault();
             }
         });
     }
-    
-    window.addEventListener('scroll', setActiveLink);
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 }
 
 // =========================================
 // HERO ANIMATIONS
 // =========================================
 function initHeroAnimations() {
-    // Typewriter effect for role text
-    const roleText = document.querySelector('.role-text');
-    
+    var roleText = document.querySelector('.role-text');
+
     if (roleText) {
-        const roles = ['Creative Director', 'Art Director', 'Graphic Designer', 'Visual Storyteller', 'Brand Designer'];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
-        
+        var roles = ['Creative Director', 'Art Director', 'Graphic Designer', 'Visual Storyteller', 'Brand Designer'];
+        var roleIndex = 0;
+        var charIndex = 0;
+        var isDeleting = false;
+        var typeSpeed = 100;
+
         function typeWriter() {
-            const currentRole = roles[roleIndex];
-            
+            var currentRole = roles[roleIndex];
+
             if (isDeleting) {
                 roleText.textContent = currentRole.substring(0, charIndex - 1);
                 charIndex--;
@@ -255,64 +296,60 @@ function initHeroAnimations() {
                 charIndex++;
                 typeSpeed = 100;
             }
-            
+
             if (!isDeleting && charIndex === currentRole.length) {
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 roleIndex = (roleIndex + 1) % roles.length;
-                typeSpeed = 500; // Pause before next word
+                typeSpeed = 500;
             }
-            
+
             setTimeout(typeWriter, typeSpeed);
         }
-        
-        // Start typewriter after loader finishes
+
         setTimeout(typeWriter, 2500);
     }
-    
-    // Counter animation for stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
+
+    var statNumbers = document.querySelectorAll('.stat-number');
+
     function animateCounter(el) {
-        const target = parseInt(el.getAttribute('data-target'));
+        var target = parseInt(el.getAttribute('data-target'));
         if (!target) return;
-        
-        const duration = 2000;
-        const start = 0;
-        const startTime = performance.now();
-        
+
+        var duration = 2000;
+        var startTime = performance.now();
+
         function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const current = Math.floor(start + (target - start) * easeOutQuart);
-            
-            el.textContent = current;
-            
+            var elapsed = currentTime - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            el.textContent = Math.floor(target * easeOutQuart);
+
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
+            } else {
+                el.textContent = target;
             }
         }
-        
+
         requestAnimationFrame(updateCounter);
     }
-    
-    // Trigger counter when hero stats are in view
-    const heroStats = document.querySelector('.hero-stats');
+
+    var heroStats = document.querySelector('.hero-stats');
     if (heroStats && statNumbers.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    statNumbers.forEach(num => animateCounter(num));
-                    observer.unobserve(entry.target);
+        var observer = new IntersectionObserver(function(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    for (var j = 0; j < statNumbers.length; j++) {
+                        animateCounter(statNumbers[j]);
+                    }
+                    observer.unobserve(entries[i].target);
                 }
-            });
+            }
         }, { threshold: 0.5 });
-        
+
         observer.observe(heroStats);
     }
 }
@@ -321,142 +358,123 @@ function initHeroAnimations() {
 // SCROLL ANIMATIONS
 // =========================================
 function initScrollAnimations() {
-    // Elements to reveal on scroll
-    const revealElements = document.querySelectorAll(
+    var revealElements = document.querySelectorAll(
         '.section-header, .about-image-wrapper, .about-content, ' +
         '.chart-wrapper, .featured-project, .brands-image-wrapper, ' +
-        '.contact-card, .skill-category'
+        '.contact-card, .skill-category, .envoy-intro, .envoy-covers-section, ' +
+        '.envoy-pages-section, .envoy-detail-card, .envoy-cta'
     );
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal', 'active');
-                revealObserver.unobserve(entry.target);
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                entries[i].target.classList.add('reveal', 'active');
+                revealObserver.unobserve(entries[i].target);
             }
-        });
-    }, { 
-        threshold: 0.1, 
-        rootMargin: '0px 0px -50px 0px' 
-    });
-    
-    revealElements.forEach(el => {
-        el.classList.add('reveal');
-        revealObserver.observe(el);
-    });
-    
-    // Stagger animation for project items
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    const projectObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                // Add staggered delay based on visible index
-                const visibleItems = document.querySelectorAll('.project-item.visible');
-                const delay = visibleItems.length * 50;
-                
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, Math.min(delay, 500)); // Cap delay at 500ms
-                
-                projectObserver.unobserve(entry.target);
+        }
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    for (var i = 0; i < revealElements.length; i++) {
+        revealElements[i].classList.add('reveal');
+        revealObserver.observe(revealElements[i]);
+    }
+
+    var projectItems = document.querySelectorAll('.project-item');
+
+    var projectObserver = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                var visibleCount = document.querySelectorAll('.project-item.visible').length;
+                var delay = Math.min(visibleCount * 50, 500);
+                (function(target) {
+                    setTimeout(function() {
+                        target.classList.add('visible');
+                    }, delay);
+                })(entries[i].target);
+                projectObserver.unobserve(entries[i].target);
             }
-        });
+        }
     }, { threshold: 0.1 });
-    
-    projectItems.forEach(item => projectObserver.observe(item));
+
+    for (var j = 0; j < projectItems.length; j++) {
+        projectObserver.observe(projectItems[j]);
+    }
 }
 
 // =========================================
 // EXPERIENCE CHART
 // =========================================
 function initExperienceChart() {
-    const ctx = document.getElementById('experienceChart');
+    var ctx = document.getElementById('experienceChart');
     if (!ctx) return;
-    
-    // Function to get theme-appropriate colors
+
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js not loaded yet. Retrying in 1 second...');
+        var retryCount = 0;
+        var maxRetries = 10;
+        var retryInterval = setInterval(function() {
+            retryCount++;
+            if (typeof Chart !== 'undefined') {
+                clearInterval(retryInterval);
+                createChart(ctx);
+            } else if (retryCount >= maxRetries) {
+                clearInterval(retryInterval);
+                console.error('Chart.js failed to load after ' + maxRetries + ' retries.');
+            }
+        }, 1000);
+        return;
+    }
+
+    createChart(ctx);
+}
+
+function createChart(ctx) {
     function getChartColors() {
-        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' ||
-                          document.body.getAttribute('data-theme') === 'dark';
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         return {
-            textColor: isDarkMode ? '#f1f5f9' : '#333',
-            gridColor: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-            tickColor: isDarkMode ? '#f1f5f9' : '#333',
-            tooltipBg: isDarkMode ? '#1e293b' : '#ffffff'
+            textColor: isDark ? '#f1f5f9' : '#333',
+            gridColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+            tickColor: isDark ? '#f1f5f9' : '#333',
+            tooltipBg: isDark ? '#1e293b' : '#ffffff'
         };
     }
-    
-    let chartColors = getChartColors();
-    
-    // Data for the experience chart - YOUR ORIGINAL DATA
-    const experienceData = {
-        labels: [
-            'Adobe Illustrator',
-            'Adobe Photoshop',
-            'Adobe Acrobat',
-            'Adobe InDesign',
-            'Adobe Creative Suite',
-            'Adobe Bridge',
-            'Adobe Creative Cloud',
-            'Adobe Media Encoder',
-            'Microsoft Word',
-            'Microsoft PowerPoint',
-            'QuarkXPress',
-            'Adobe Premiere Pro',
-            'Adobe After Effects',
-            'Microsoft Excel',
-            'Adobe Audition',
-            'Corel Painter'
-        ],
-        datasets: [{
-            label: 'Years of Experience',
-            data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 9, 8, 7, 6, 5, 4, 3],
-            backgroundColor: [
-                'rgba(255,154,0,0.85)',    // Illustrator
-                'rgba(49,168,255,0.85)',   // Photoshop
-                'rgba(255,0,0,0.85)',      // Acrobat
-                'rgba(255,51,102,0.85)',   // InDesign
-                'rgba(120,120,120,0.85)',  // Creative Suite
-                'rgba(50,50,50,0.85)',     // Bridge (lighter for visibility)
-                'rgba(218,31,38,0.85)',    // Creative Cloud
-                'rgba(138,43,226,0.85)',   // Media Encoder
-                'rgba(43,87,154,0.85)',    // Word
-                'rgba(235,72,36,0.85)',    // PowerPoint
-                'rgba(0,174,239,0.85)',    // QuarkXPress
-                'rgba(153,51,255,0.85)',   // Premiere Pro
-                'rgba(166,124,255,0.85)',  // After Effects
-                'rgba(33,115,70,0.85)',    // Excel
-                'rgba(0,229,229,0.85)',    // Audition
-                'rgba(228,82,60,0.85)'     // Corel Painter
-            ],
-            borderColor: [
-                'rgba(255,154,0,1)',
-                'rgba(49,168,255,1)',
-                'rgba(255,0,0,1)',
-                'rgba(255,51,102,1)',
-                'rgba(120,120,120,1)',
-                'rgba(50,50,50,1)',
-                'rgba(218,31,38,1)',
-                'rgba(138,43,226,1)',
-                'rgba(43,87,154,1)',
-                'rgba(235,72,36,1)',
-                'rgba(0,174,239,1)',
-                'rgba(153,51,255,1)',
-                'rgba(166,124,255,1)',
-                'rgba(33,115,70,1)',
-                'rgba(0,229,229,1)',
-                'rgba(228,82,60,1)'
-            ],
-            borderWidth: 2,
-            borderRadius: 6,
-            borderSkipped: false,
-        }]
-    };
-    
-    // Create the chart
+
+    var colors = getChartColors();
+
     window.experienceChart = new Chart(ctx, {
         type: 'bar',
-        data: experienceData,
+        data: {
+            labels: [
+                'Adobe Illustrator', 'Adobe Photoshop', 'Adobe Acrobat',
+                'Adobe InDesign', 'Adobe Creative Suite', 'Adobe Bridge',
+                'Adobe Creative Cloud', 'Adobe Media Encoder', 'Microsoft Word',
+                'Microsoft PowerPoint', 'QuarkXPress', 'Adobe Premiere Pro',
+                'Adobe After Effects', 'Microsoft Excel', 'Adobe Audition', 'Corel Painter'
+            ],
+            datasets: [{
+                label: 'Years of Experience',
+                data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 9, 8, 7, 6, 5, 4, 3],
+                backgroundColor: [
+                    'rgba(255,154,0,0.85)', 'rgba(49,168,255,0.85)', 'rgba(255,0,0,0.85)',
+                    'rgba(255,51,102,0.85)', 'rgba(120,120,120,0.85)', 'rgba(50,50,50,0.85)',
+                    'rgba(218,31,38,0.85)', 'rgba(138,43,226,0.85)', 'rgba(43,87,154,0.85)',
+                    'rgba(235,72,36,0.85)', 'rgba(0,174,239,0.85)', 'rgba(153,51,255,0.85)',
+                    'rgba(166,124,255,0.85)', 'rgba(33,115,70,0.85)', 'rgba(0,229,229,0.85)',
+                    'rgba(228,82,60,0.85)'
+                ],
+                borderColor: [
+                    'rgba(255,154,0,1)', 'rgba(49,168,255,1)', 'rgba(255,0,0,1)',
+                    'rgba(255,51,102,1)', 'rgba(120,120,120,1)', 'rgba(50,50,50,1)',
+                    'rgba(218,31,38,1)', 'rgba(138,43,226,1)', 'rgba(43,87,154,1)',
+                    'rgba(235,72,36,1)', 'rgba(0,174,239,1)', 'rgba(153,51,255,1)',
+                    'rgba(166,124,255,1)', 'rgba(33,115,70,1)', 'rgba(0,229,229,1)',
+                    'rgba(228,82,60,1)'
+                ],
+                borderWidth: 2,
+                borderRadius: 6,
+                borderSkipped: false
+            }]
+        },
         options: {
             indexAxis: 'y',
             responsive: true,
@@ -464,72 +482,45 @@ function initExperienceChart() {
             scales: {
                 x: {
                     beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Years of Experience',
-                        color: chartColors.textColor,
-                        font: {
-                            size: 14,
-                            weight: '500'
-                        }
-                    },
-                    ticks: {
-                        stepSize: 5,
-                        color: chartColors.tickColor,
-                        font: { size: 12 }
-                    },
-                    grid: {
-                        color: chartColors.gridColor
-                    }
+                    title: { display: true, text: 'Years of Experience', color: colors.textColor, font: { size: 14, weight: '500' } },
+                    ticks: { stepSize: 5, color: colors.tickColor, font: { size: 12 } },
+                    grid: { color: colors.gridColor }
                 },
                 y: {
-                    ticks: {
-                        font: { size: 13 },
-                        color: chartColors.tickColor
-                    },
-                    grid: {
-                        color: chartColors.gridColor
-                    }
+                    ticks: { font: { size: 13 }, color: colors.tickColor },
+                    grid: { color: colors.gridColor }
                 }
             },
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: chartColors.tooltipBg,
-                    titleColor: chartColors.textColor,
-                    bodyColor: chartColors.textColor,
-                    borderColor: chartColors.gridColor,
+                    backgroundColor: colors.tooltipBg,
+                    titleColor: colors.textColor,
+                    bodyColor: colors.textColor,
+                    borderColor: colors.gridColor,
                     borderWidth: 1,
                     padding: 12,
                     cornerRadius: 8,
                     displayColors: true,
                     callbacks: {
-                        label: function(context) {
-                            return ` ${context.parsed.x} years`;
-                        }
+                        label: function(context) { return ' ' + context.parsed.x + ' years'; }
                     }
                 }
             },
-            animation: {
-                duration: 1500,
-                easing: 'easeOutQuart'
-            }
+            animation: { duration: 1500, easing: 'easeOutQuart' }
         }
     });
 }
 
-// Update chart colors when theme changes
 function updateChartColors() {
-    const chart = window.experienceChart;
+    var chart = window.experienceChart;
     if (!chart) return;
-    
-    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' ||
-                      document.body.getAttribute('data-theme') === 'dark';
-    
-    const textColor = isDarkMode ? '#f1f5f9' : '#333';
-    const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-    const tooltipBg = isDarkMode ? '#1e293b' : '#ffffff';
-    
+
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var textColor = isDark ? '#f1f5f9' : '#333';
+    var gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+    var tooltipBg = isDark ? '#1e293b' : '#ffffff';
+
     chart.options.scales.x.ticks.color = textColor;
     chart.options.scales.y.ticks.color = textColor;
     chart.options.scales.x.title.color = textColor;
@@ -538,34 +529,42 @@ function updateChartColors() {
     chart.options.plugins.tooltip.backgroundColor = tooltipBg;
     chart.options.plugins.tooltip.titleColor = textColor;
     chart.options.plugins.tooltip.bodyColor = textColor;
-    
     chart.update();
 }
 
 // =========================================
-// MOBILE DEVICE DETECTION
+// MOBILE DETECTION
 // =========================================
 function initMobileDetection() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
+    var isMobile = false;
+
+    if (window.matchMedia) {
+        isMobile = window.matchMedia('(pointer: coarse)').matches;
+    }
+
+    if (!isMobile) {
+        isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    if (!isMobile && navigator.maxTouchPoints && navigator.maxTouchPoints > 2) {
+        isMobile = true;
+    }
+
     if (isMobile) {
-        const heroSection = document.getElementById('hero');
+        var heroSection = document.getElementById('hero');
         if (heroSection) {
             heroSection.style.backgroundImage = "url('assets/introductionbgimagemobile.jpg')";
-            heroSection.style.backgroundAttachment = 'scroll'; // Better mobile performance
+            heroSection.style.backgroundAttachment = 'scroll';
         }
-        
-        // Add mobile class to body for CSS targeting
         document.body.classList.add('is-mobile');
     }
 }
 
 // =========================================
-// PROJECT MODAL - YOUR ORIGINAL DATA
+// PROJECT MODAL
 // =========================================
 function initProjectModal() {
-    // YOUR ORIGINAL PROJECT DESCRIPTIONS - ALL RETAINED
-    const projectDescriptions = [
+    var projectDescriptions = [
         { title: "Banner - Featured Project", description: "Banner" },
         { title: "Billboard", description: "Billboard" },
         { title: "Illustration", description: "Illustration" },
@@ -576,256 +575,391 @@ function initProjectModal() {
         { title: "Application UI", description: "Application UI" },
         { title: "Promotion/Advertisement design", description: "Promotion/Advertisement design" },
         { title: "Web Design", description: "Web Design" },
-        { title: "Many Logo Designs", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for. You can find more brands that I worked for by scrolling down." },
-        { title: "Magazine covers (for Envoy). (Made in the US)", description: "These are all the covers that I had designed from scratch of the Envoy magazine. Envoy is a magazine that is actively being printed and distributed today, and is sold in many bookstores nationwide and across the world, including but not limited to: United States, various regions in Europe, Canada, and Türkiye." },
+        { title: "Many Logo Designs", description: "This is a mini-project that I had designed myself, depicting some of the brands that I worked for." },
+        { title: "Magazine covers (for Envoy)", description: "These are all the covers that I had designed from scratch of the Envoy magazine." },
         { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
         { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
-        { title: "AUTOCAR - Print Magazine cover", description: "Print magazine " },
-        { title: "BATHONEA flyer/brochure", description: "A brochure for the business: \"BATHONEA\" " },
+        { title: "AUTOCAR - Print Magazine cover", description: "Print magazine" },
+        { title: "BATHONEA flyer/brochure", description: "A brochure for BATHONEA" },
         { title: "Promotion/advertisement", description: "A promotion/advertisement for Blue Jade Construction Inc." },
-        { title: "Business card design", description: "This is my design for the business card of the company: \"Blue Jade Construction Inc\"" },
-        { title: "Business card design", description: "This is my design for the business card of the company: \"CARFORNIA.COM\"" },
-        { title: "Bus stop shelter advertisement design", description: "A bus shelter ad/promotion that I've designed" },
-        { title: "Envoy magazine covers & UI designs", description: "A design where I showcase the UI of the Envoy magazine's website (envoymag.com) and the covers of the Envoy magazine (of multiple issues)" },
-        { title: "Showcase of a magazine design of mine", description: "This is a showcase of my magazine design skills." },
-        { title: "Web & UI Design", description: "This is a showcase of a UI design along with a website design." },
-        { title: "Business promotion design for many uses", description: "This is my design that promotes the business on various items." },
-        { title: "Many logo designs", description: "Many logo designs that I've designed." },
-        { title: "Restaurant sign design", description: "This is a restaurant sign design that I've designed." },
-        { title: "Brochure", description: "This is a brochure that I've designed." },
-        { title: "Business design", description: "This is a promotion that I've designed." },
-        { title: "Business design", description: "This is an advertisement/packaging design for a printing press business." },
-        { title: "Many magazine designs", description: "Many magazine designs that I've designed." },
-        { title: "Drawing", description: "This image presents a chaotic and vibrant digital collage that serves as a sketchbook study of the Marvel character, the Incredible Hulk, set against an intense neon green background. The composition features several distinct iterations of the character in various states of action and differing artistic styles: a central, lime-highlighted figure stands in a triumphant double-bicep flex; a grey-scale, pencil-textured Hulk lunges to the right; a pink-hued version crouches low to the ground; and a rougher, yellow-colored figure appears to be mid-combat in the upper left. Faint, scribbled lines in the background hint at a forest setting or discarded drafts, while handwritten text—including the date \"29.12.2002\" and the Turkish phrase \"Hulk çizimlerim\" (\"My Hulk drawings\")—confirms this is a personal collection of concept art or practice sketches exploring the character's exaggerated anatomy and dynamic movement." },
-        { title: "YouTube profile picture design", description: "This is mainly for a profile picture design made for a gaming channel on YouTube. It can also be used for a cybercafe design or similar." },
-        { title: "Many logo designs", description: "Many logo designs that I've designed." },
-        { title: "Business card design", description: "This is a business card that I've designed." },
-        { title: "Drawing", description: "The image is a digital illustration designed to mimic traditional Japanese woodblock prints (Ukiyo-e) or scroll paintings. It features a prominent canvas-like texture overlay that gives it the appearance of being painted on rough paper or fabric. The subjects include Oni, and a warrior." },
-        { title: "Project 36", description: "Description coming soon" },
-        { title: "Project 37", description: "Description coming soon" },
-        { title: "Project 38", description: "Description coming soon" },
-        { title: "Project 39", description: "Description coming soon" },
-        { title: "Project 40", description: "Description coming soon" },
-        { title: "Project 41", description: "Description coming soon" },
-        { title: "Project 42", description: "Description coming soon" },
-        { title: "Project 43", description: "Description coming soon" },
-        { title: "Project 44", description: "Description coming soon" },
-        { title: "Project 45", description: "Description coming soon" },
-        { title: "Project 46", description: "Description coming soon" },
-        { title: "Project 47", description: "Description coming soon" },
-        { title: "Project 48", description: "Description coming soon" },
-        { title: "Drawing", description: "The image shows a page from a spiral-bound sketchbook (the metal coils are visible at the very top). The artwork is a vertical, panoramic illustration created using watercolors and ink. The style is somewhat loose and sketch-like but captures a sense of grand scale." },
-        { title: "Project 50", description: "Description coming soon" },
-        { title: "Project 51", description: "Description coming soon" },
-        { title: "Project 52", description: "Description coming soon" },
-        { title: "Project 53", description: "Description coming soon" },
-        { title: "Project 54", description: "Description coming soon" },
-        { title: "Project 55", description: "Description coming soon" },
-        { title: "Project 56", description: "Description coming soon" },
-        { title: "Project 57", description: "Description coming soon" },
-        { title: "Project 58", description: "Description coming soon" },
-        { title: "Project 59", description: "Description coming soon" },
-        { title: "Project 60", description: "Description coming soon" },
-        { title: "Project 61", description: "Description coming soon" },
-        { title: "Project 62", description: "Description coming soon" },
-        { title: "Project 63", description: "Description coming soon" },
-        { title: "Project 64", description: "Description coming soon" },
-        { title: "Project 65", description: "Description coming soon" },
-        { title: "Project 66", description: "Description coming soon" },
-        { title: "Project 67", description: "Description coming soon" },
-        { title: "Project 68", description: "Description coming soon" },
-        { title: "Project 69", description: "Description coming soon" },
-        { title: "Project 70", description: "Description coming soon" },
-        { title: "Project 71", description: "Description coming soon" },
-        { title: "Project 72", description: "Description coming soon" },
-        { title: "Project 73", description: "Description coming soon" },
-        { title: "Project 74", description: "Description coming soon" },
-        { title: "Project 75", description: "Description coming soon" },
-        { title: "Project 76", description: "Description coming soon" },
-        { title: "Project 77", description: "Description coming soon" },
-        { title: "Project 78", description: "Description coming soon" }
+        { title: "Business card design", description: "Business card for Blue Jade Construction Inc" },
+        { title: "Business card design", description: "Business card for CARFORNIA.COM" },
+        { title: "Bus stop shelter advertisement", description: "A bus shelter ad/promotion" },
+        { title: "Envoy magazine covers & UI designs", description: "UI of envoymag.com and covers of multiple issues" },
+        { title: "Magazine design showcase", description: "Showcase of magazine design skills." },
+        { title: "Web & UI Design", description: "UI design along with a website design." },
+        { title: "Business promotion design", description: "Design that promotes the business on various items." },
+        { title: "Many logo designs", description: "Many logo designs." },
+        { title: "Restaurant sign design", description: "Restaurant sign design." },
+        { title: "Brochure", description: "A brochure design." },
+        { title: "Business design", description: "A promotion design." },
+        { title: "Business design", description: "Advertisement/packaging design for a printing press." },
+        { title: "Many magazine designs", description: "Many magazine designs." },
+        { title: "Drawing", description: "Digital collage sketchbook study of the Incredible Hulk." },
+        { title: "YouTube profile picture design", description: "Profile picture design for a gaming channel." },
+        { title: "Many logo designs", description: "Many logo designs." },
+        { title: "Business card design", description: "A business card design." },
+        { title: "Drawing", description: "Digital illustration mimicking Japanese woodblock prints." }
     ];
-    
-    // Make descriptions available globally for projects.js
+
+    for (var d = projectDescriptions.length; d < 80; d++) {
+        projectDescriptions.push({ title: "Project " + (d + 1), description: "Description coming soon" });
+    }
+
     window.projectDescriptions = projectDescriptions;
-    
-    // Get modal elements
-    const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const modalText = document.getElementById('modal-text');
-    const closeBtn = document.querySelector('.modal-close') || document.querySelector('.close');
-    const backdrop = document.querySelector('.modal-backdrop');
-    const prevBtn = document.querySelector('.modal-prev');
-    const nextBtn = document.querySelector('.modal-next');
-    
-    // Get all project images
-    const projectImages = document.querySelectorAll('.project-img');
-    let currentIndex = 0;
-    
-    // Open modal function
+
+    var modal = document.getElementById('image-modal');
+    var modalImage = document.getElementById('modal-image');
+    var modalTitle = document.getElementById('modal-title');
+    var modalText = document.getElementById('modal-text');
+    var closeBtn = document.querySelector('.modal-close');
+    var backdrop = document.querySelector('.modal-backdrop');
+    var prevBtn = document.querySelector('.modal-prev');
+    var nextBtn = document.querySelector('.modal-next');
+    var projectImages = document.querySelectorAll('.project-img');
+    var currentIndex = 0;
+
+    // Track which gallery is active: 'projects', 'envoy-covers', or 'envoy-pages'
+    var activeGallery = 'projects';
+    var activeGalleryImages = [];
+    var activeGalleryDescriptions = [];
+
     function openModal(index) {
-        if (!modal) return;
-        
+        if (!modal || !activeGalleryImages[index]) return;
         currentIndex = index;
-        const img = projectImages[index];
-        const description = projectDescriptions[index] || { 
-            title: `Project ${index + 1}`, 
-            description: 'A creative design project showcasing professional expertise and attention to detail.' 
-        };
-        
-        // Set modal content
-        modalImage.src = img.src;
-        modalTitle.textContent = description.title;
-        modalText.textContent = description.description;
-        
-        // Show modal
+
+        var desc = activeGalleryDescriptions[index] || { title: 'Image ' + (index + 1), description: '' };
+
+        if (modalImage) modalImage.src = activeGalleryImages[index].src;
+        if (modalTitle) modalTitle.textContent = desc.title;
+        if (modalText) modalText.textContent = desc.description;
         modal.style.display = 'block';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        
-        // Scroll to top of modal when opened
         modal.scrollTop = 0;
-        
-        // Add entrance animation
-        const modalContent = modal.querySelector('.modal-content');
-        if (modalContent) {
-            modalContent.style.animation = 'none';
-            modalContent.offsetHeight; // Trigger reflow
-            modalContent.style.animation = 'slideIn 0.4s ease';
-        }
+
+        // Update nav button visibility
+        updateNavButtons();
     }
-    
-    // Close modal function
+
+    function updateNavButtons() {
+        if (prevBtn) prevBtn.style.display = (activeGalleryImages.length > 1) ? '' : 'none';
+        if (nextBtn) nextBtn.style.display = (activeGalleryImages.length > 1) ? '' : 'none';
+    }
+
     function closeModal() {
         if (!modal) return;
-        
         modal.style.display = 'none';
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
     }
-    
-    // Navigate to next image
+
     function showNext() {
-        currentIndex = (currentIndex + 1) % projectImages.length;
+        if (activeGalleryImages.length === 0) return;
+        currentIndex = (currentIndex + 1) % activeGalleryImages.length;
         openModal(currentIndex);
     }
-    
-    // Navigate to previous image
+
     function showPrev() {
-        currentIndex = (currentIndex - 1 + projectImages.length) % projectImages.length;
+        if (activeGalleryImages.length === 0) return;
+        currentIndex = (currentIndex - 1 + activeGalleryImages.length) % activeGalleryImages.length;
         openModal(currentIndex);
     }
-    
-    // Add click event to all images
-    projectImages.forEach((img, index) => {
-        img.addEventListener('click', () => openModal(index));
-        
-        // Add keyboard accessibility
-        img.setAttribute('tabindex', '0');
-        img.setAttribute('role', 'button');
-        img.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModal(index);
-            }
-        });
-    });
-    
-    // Close modal when X is clicked
-    closeBtn?.addEventListener('click', closeModal);
-    
-    // Close modal when clicking backdrop
-    backdrop?.addEventListener('click', closeModal);
-    
-    // Close modal when clicking outside the content (for old modal structure)
-    modal?.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
+
+    // Set up project image clicks
+    function setProjectGallery() {
+        activeGallery = 'projects';
+        activeGalleryImages = [];
+        activeGalleryDescriptions = [];
+
+        for (var i = 0; i < projectImages.length; i++) {
+            activeGalleryImages.push(projectImages[i]);
+            var dataIndex = parseInt(projectImages[i].getAttribute('data-index'));
+            if (isNaN(dataIndex)) dataIndex = i;
+            activeGalleryDescriptions.push(
+                projectDescriptions[dataIndex] || { title: 'Project ' + (dataIndex + 1), description: '' }
+            );
         }
-    });
-    
-    // Navigation buttons
-    nextBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showNext();
-    });
-    
-    prevBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showPrev();
-    });
-    
-    // Keyboard navigation
+    }
+
+    for (var i = 0; i < projectImages.length; i++) {
+        (function(idx) {
+            projectImages[idx].addEventListener('click', function() {
+                setProjectGallery();
+                openModal(idx);
+            });
+            projectImages[idx].setAttribute('tabindex', '0');
+            projectImages[idx].setAttribute('role', 'button');
+        })(i);
+    }
+
+    // Expose functions for Envoy gallery to use
+    window.openModalWithGallery = function(images, descriptions, startIndex) {
+        activeGalleryImages = images;
+        activeGalleryDescriptions = descriptions;
+        openModal(startIndex);
+    };
+
+    window.closeProjectModal = closeModal;
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showNext(); });
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPrev(); });
+
     document.addEventListener('keydown', function(e) {
-        if (!modal?.classList.contains('active') && modal?.style.display !== 'block') return;
-        
-        switch(e.key) {
-            case 'Escape':
-                closeModal();
-                break;
-            case 'ArrowRight':
-                showNext();
-                break;
-            case 'ArrowLeft':
-                showPrev();
-                break;
-        }
+        if (!modal || modal.style.display !== 'block') return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
     });
-    
-    // Touch/swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    modal?.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    modal?.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                showNext(); // Swipe left = next
-            } else {
-                showPrev(); // Swipe right = previous
+
+    var touchStartX = 0;
+    if (modal) {
+        modal.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        modal.addEventListener('touchend', function(e) {
+            var diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) showNext(); else showPrev();
             }
-        }
+        }, { passive: true });
     }
 }
 
 // =========================================
-// INITIALIZE DEFAULT PROJECTS (for localStorage)
+// ENVOY MAGAZINE CAROUSEL & GALLERY
 // =========================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize projects if none exist in localStorage
-    if (!localStorage.getItem('projects')) {
-        const defaultProjects = [
-            {
-                title: "E-Commerce Platform",
-                description: "A full-featured online shopping platform with payment integration.",
-                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-                tags: ["React", "Node.js", "MongoDB"]
-            },
-            {
-                title: "Task Management App",
-                description: "A productivity application for teams to manage projects and deadlines.",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-                tags: ["Vue.js", "Firebase", "Tailwind CSS"]
-            },
-            {
-                title: "Weather Dashboard",
-                description: "Real-time weather application with forecasts and location tracking.",
-                image: "https://images.unsplash.com/photo-1561484930-994b8cb85a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-                tags: ["JavaScript", "API Integration", "Chart.js"]
-            }
-        ];
-        localStorage.setItem('projects', JSON.stringify(defaultProjects));
+function initEnvoyGallery() {
+    var track = document.querySelector('.envoy-carousel-track');
+    var slides = document.querySelectorAll('.envoy-cover-slide');
+    var prevBtn = document.querySelector('.envoy-carousel-prev');
+    var nextBtn = document.querySelector('.envoy-carousel-next');
+    var dots = document.querySelectorAll('.envoy-dot');
+    var viewport = document.querySelector('.envoy-carousel-viewport');
+
+    if (!track || slides.length === 0 || !viewport) return;
+
+    var currentCenter = 0;
+    var isDragging = false;
+    var hasDragged = false;
+    var dragStartX = 0;
+    var dragStartTranslate = 0;
+    var currentTranslate = 0;
+
+    function getSlideWidth() {
+        return slides[0].offsetWidth;
     }
-});
+
+    function getTranslateForIndex(index) {
+        var slideWidth = getSlideWidth();
+        var viewportCenter = viewport.offsetWidth / 2;
+        var slideCenter = (index * slideWidth) + (slideWidth / 2);
+        return viewportCenter - slideCenter;
+    }
+
+    function updateActiveStates() {
+        for (var i = 0; i < slides.length; i++) {
+            if (i === currentCenter) {
+                slides[i].classList.add('is-center');
+            } else {
+                slides[i].classList.remove('is-center');
+            }
+        }
+        for (var j = 0; j < dots.length; j++) {
+            if (j === currentCenter) {
+                dots[j].classList.add('active');
+            } else {
+                dots[j].classList.remove('active');
+            }
+        }
+    }
+
+    function goToSlide(index, animate) {
+        if (animate === undefined) animate = true;
+        index = Math.max(0, Math.min(index, slides.length - 1));
+        currentCenter = index;
+        var translateX = getTranslateForIndex(index);
+        currentTranslate = translateX;
+
+        if (animate) {
+            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        } else {
+            track.style.transition = 'none';
+        }
+
+        track.style.transform = 'translateX(' + translateX + 'px)';
+        updateActiveStates();
+    }
+
+    function goNext() { goToSlide(currentCenter + 1); }
+    function goPrev() { goToSlide(currentCenter - 1); }
+
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+    if (prevBtn) prevBtn.addEventListener('click', goPrev);
+
+    for (var d = 0; d < dots.length; d++) {
+        (function(dot) {
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(dot.getAttribute('data-index')));
+            });
+        })(dots[d]);
+    }
+
+    // Drag support
+    function getPointerX(e) {
+        if (e.touches && e.touches.length > 0) return e.touches[0].clientX;
+        if (e.changedTouches && e.changedTouches.length > 0) return e.changedTouches[0].clientX;
+        return e.pageX || e.clientX || 0;
+    }
+
+    function onDragStart(e) {
+        isDragging = true;
+        hasDragged = false;
+        dragStartX = getPointerX(e);
+        dragStartTranslate = currentTranslate;
+        track.style.transition = 'none';
+        viewport.style.cursor = 'grabbing';
+    }
+
+    function onDragMove(e) {
+        if (!isDragging) return;
+        var currentX = getPointerX(e);
+        var diff = currentX - dragStartX;
+
+        if (Math.abs(diff) > 5) {
+            hasDragged = true;
+        }
+
+        if (e.cancelable && Math.abs(diff) > 10) {
+            e.preventDefault();
+        }
+
+        track.style.transform = 'translateX(' + (dragStartTranslate + diff) + 'px)';
+    }
+
+    function onDragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        viewport.style.cursor = 'grab';
+
+        var endX = getPointerX(e);
+        var diff = endX - dragStartX;
+        var threshold = getSlideWidth() * 0.25;
+
+        if (diff < -threshold && currentCenter < slides.length - 1) {
+            goToSlide(currentCenter + 1);
+        } else if (diff > threshold && currentCenter > 0) {
+            goToSlide(currentCenter - 1);
+        } else {
+            goToSlide(currentCenter);
+        }
+
+        setTimeout(function() {
+            hasDragged = false;
+        }, 100);
+    }
+
+    viewport.addEventListener('mousedown', onDragStart);
+    viewport.addEventListener('mousemove', onDragMove);
+    viewport.addEventListener('mouseup', onDragEnd);
+    viewport.addEventListener('mouseleave', function() {
+        if (isDragging) {
+            isDragging = false;
+            hasDragged = false;
+            viewport.style.cursor = 'grab';
+            goToSlide(currentCenter);
+        }
+    });
+
+    viewport.addEventListener('touchstart', onDragStart, { passive: true });
+    viewport.addEventListener('touchmove', onDragMove, { passive: false });
+    viewport.addEventListener('touchend', onDragEnd);
+    viewport.addEventListener('dragstart', function(e) { e.preventDefault(); });
+
+    // Resize handler
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            goToSlide(currentCenter, false);
+        }, 100);
+    });
+
+    // Initialize position
+    setTimeout(function() {
+        goToSlide(0, false);
+        track.style.opacity = '1';
+    }, 100);
+
+    // =========================================
+    // ENVOY COVER MODAL — Full-screen like projects
+    // =========================================
+    var coverImages = document.querySelectorAll('.envoy-cover-img');
+
+    var coverDescriptions = [
+        { title: "Envoy Magazine — Issue 01 Cover", description: "The debut issue establishing the visual identity and editorial direction of Envoy Magazine." },
+        { title: "Envoy Magazine — Issue 02 Cover", description: "The second issue building the Envoy brand with refined design language and editorial presence." },
+        { title: "Envoy Magazine — Issue 03 Cover", description: "Issue 03 exploring new visual territory with bold creative direction." },
+        { title: "Envoy Magazine — Issue 04 Cover", description: "The fourth issue showcasing continued design evolution and brand maturity." },
+        { title: "Envoy Magazine — Issue 05 Cover", description: "Issue 05 with growing sophistication in typography and visual composition." },
+        { title: "Envoy Magazine — Issue 06 Cover", description: "Bold cover design with refined visual storytelling and impactful imagery." },
+        { title: "Envoy Magazine — Issue 07 Cover", description: "The latest issue representing the pinnacle of Envoy's visual evolution." }
+    ];
+
+    // Build image array for the cover gallery (using the actual img elements)
+    var coverImageElements = [];
+    for (var ci = 0; ci < coverImages.length; ci++) {
+        coverImageElements.push(coverImages[ci]);
+    }
+
+    // Slide click handler: center slide opens modal, non-center navigates
+    for (var s = 0; s < slides.length; s++) {
+        (function(slide, idx) {
+            slide.addEventListener('click', function() {
+                if (hasDragged) return;
+
+                if (idx === currentCenter) {
+                    // Center slide clicked — open full-screen modal
+                    if (typeof window.openModalWithGallery === 'function') {
+                        window.openModalWithGallery(coverImageElements, coverDescriptions, idx);
+                    }
+                } else {
+                    // Non-center slide — navigate carousel
+                    goToSlide(idx);
+                }
+            });
+        })(slides[s], s);
+    }
+
+    // =========================================
+    // ENVOY INTERIOR PAGES MODAL
+    // =========================================
+    var pageImages = document.querySelectorAll('.envoy-page-img');
+    var pageDescriptions = [
+        { title: "Envoy", description: "" },
+        { title: "Envoy", description: "" },
+        { title: "Envoy", description: "" },
+        { title: "Envoy", description: "" },
+        { title: "Envoy", description: "" },
+        { title: "Envoy", description: "" }
+    ];
+
+    var pageImageElements = [];
+    for (var pi = 0; pi < pageImages.length; pi++) {
+        pageImageElements.push(pageImages[pi]);
+    }
+
+    for (var p = 0; p < pageImages.length; p++) {
+        (function(img, idx) {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() {
+                if (typeof window.openModalWithGallery === 'function') {
+                    window.openModalWithGallery(pageImageElements, pageDescriptions, idx);
+                }
+            });
+        })(pageImages[p], p);
+    }
+}
