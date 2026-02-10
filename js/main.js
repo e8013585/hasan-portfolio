@@ -602,7 +602,7 @@ function initProjectModal() {
         { title: "Drawing", description: "Digital illustration mimicking Japanese woodblock prints." },
     ];
 
-    for (var d = projectDescriptions.length; d < 80; d++) {
+    for (var d = projectDescriptions.length; d < 145; d++) {
         projectDescriptions.push({ title: "Project " + (d + 1), description: "Description coming soon" });
     }
 
