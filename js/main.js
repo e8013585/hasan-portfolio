@@ -579,7 +579,7 @@ function initProjectModal() {
         { title: "Magazine covers (for Envoy)", description: "These are all the covers that I had designed from scratch of the Envoy magazine." },
         { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
         { title: "Billboards for a fair organization.", description: "Billboards for a fair organization." },
-        { title: "AUTOCAR - Print Magazine cover", description: "Print magazine" },
+        { title: "Stuff Magazine Cover Design", description: "Print magazine" },
         { title: "BATHONEA flyer/brochure", description: "A brochure for BATHONEA" },
         { title: "Promotion/advertisement", description: "A promotion/advertisement for Blue Jade Construction Inc." },
         { title: "Business card design", description: "Business card for Blue Jade Construction Inc" },
