@@ -1149,7 +1149,38 @@ section {
    EXPERIENCE SECTION
    ========================================= */
 #experience {
-    background: var(--bg-primary);
+    position: relative;
+    background-image: url('../assets/technicalexperiencebackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    #experience {
+        background-attachment: scroll;
+    }
+}
+
+#experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 0;
+}
+
+[data-theme="dark"] #experience::before {
+    background: rgba(15, 23, 42, 0.85);
+}
+
+#experience > * {
+    position: relative;
+    z-index: 1;
 }
 
 .experience-container {
