@@ -25,15 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Hide broken images
-    var allImages = document.querySelectorAll('img');
-    for (var j = 0; j < allImages.length; j++) {
-        allImages[j].addEventListener('error', function() {
-            var parent = this.closest('.envoy-page-item, .envoy-cover-slide');
-            if (parent) {
-                parent.style.display = 'none';
-            }
-        });
-    }
+ // var allImages = document.querySelectorAll('img');
+ // for (var j = 0; j < allImages.length; j++) {
+ //     allImages[j].addEventListener('error', function() {
+ //         var parent = this.closest('.envoy-page-item, .envoy-cover-slide');
+ //         if (parent) {
+ //             parent.style.display = 'none';
+ //         }
+ //     });
+ // }
 });
 
 // =========================================
@@ -906,7 +906,8 @@ function initEnvoyGallery() {
         { title: "Envoy Magazine — Issue 04 Cover", description: "The fourth issue showcasing continued design evolution and brand maturity." },
         { title: "Envoy Magazine — Issue 05 Cover", description: "Issue 05 with growing sophistication in typography and visual composition." },
         { title: "Envoy Magazine — Issue 06 Cover", description: "Bold cover design with refined visual storytelling and impactful imagery." },
-        { title: "Envoy Magazine — Issue 07 Cover", description: "The latest issue representing the pinnacle of Envoy's visual evolution." },
+        { title: "Envoy Magazine — Issue 07 Cover", description: "Another milestone in Envoy's visual journey, as the brand continues to evolve further into the topic of peace." },
+        { title: "Envoy Magazine — Issue 08 Cover", description: "The latest issue representing the pinnacle of Envoy's visual evolution." },
     ];
 
     // Build image array for the cover gallery (using the actual img elements)
