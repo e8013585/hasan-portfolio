@@ -2055,9 +2055,10 @@ footer {
     height: auto;
     aspect-ratio: 2769 / 3375;
     object-fit: contain;
-    display: block;
+    display: block !important;   /* prevent JS from hiding via display:none */
     pointer-events: none;
     background: var(--bg-tertiary);
+    min-height: 200px;
 }
 
 .envoy-cover-label {
@@ -2182,9 +2183,11 @@ footer {
 .envoy-page-item img {
     width: 100%;
     height: 280px;
+    min-height: 280px;
     object-fit: cover;
     display: block;
     transition: transform var(--transition-slow);
+    background-color: var(--bg-tertiary);
 }
 
 .envoy-page-item::after {
