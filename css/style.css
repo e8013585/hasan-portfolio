@@ -2283,6 +2283,12 @@ footer {
 /* =========================================
    ENVOY SECTION RESPONSIVE
    ========================================= */
+@media (max-width: 1024px) {
+    #envoy {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 992px) {
     .envoy-cover-slide {
         width: 240px;
@@ -2294,9 +2300,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #envoy {
-        background-attachment: scroll;
-    }
     
 
     .envoy-cover-slide {
@@ -2341,9 +2344,9 @@ footer {
     }
 
     .envoy-carousel-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
     }
 
     .envoy-cover-slide {
@@ -2357,6 +2360,7 @@ footer {
 
     .envoy-page-item img {
         height: 200px;
+        min-height: 200px;
     }
 
     .envoy-details {
