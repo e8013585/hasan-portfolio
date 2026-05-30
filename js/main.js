@@ -365,18 +365,24 @@ function initScrollAnimations() {
         '.envoy-pages-section, .envoy-detail-card, .envoy-cta'
     );
 
-    var revealObserver = new IntersectionObserver(function(entries) {
-        for (var i = 0; i < entries.length; i++) {
-            if (entries[i].isIntersecting) {
-                entries[i].target.classList.add('reveal', 'active');
-                revealObserver.unobserve(entries[i].target);
-            }
+    if (typeof IntersectionObserver === 'undefined') {
+        for (var i = 0; i < revealElements.length; i++) {
+            revealElements[i].classList.add('reveal', 'active');
         }
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    } else {
+        var revealObserver = new IntersectionObserver(function(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    entries[i].target.classList.add('reveal', 'active');
+                    revealObserver.unobserve(entries[i].target);
+                }
+            }
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    for (var i = 0; i < revealElements.length; i++) {
-        revealElements[i].classList.add('reveal');
-        revealObserver.observe(revealElements[i]);
+        for (var i = 0; i < revealElements.length; i++) {
+            revealElements[i].classList.add('reveal');
+            revealObserver.observe(revealElements[i]);
+        }
     }
 
     var projectItems = document.querySelectorAll('.project-item');
