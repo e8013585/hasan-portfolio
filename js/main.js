@@ -455,18 +455,19 @@ function createChart(ctx) {
                 'Adobe InDesign', 'Adobe Creative Suite', 'Adobe Bridge',
                 'Adobe Creative Cloud', 'Adobe Media Encoder', 'Microsoft Word',
                 'Microsoft PowerPoint', 'QuarkXPress', 'Adobe Premiere Pro',
-                'Adobe After Effects', 'Microsoft Excel', 'Adobe Audition', 'Corel Painter'
+                'Adobe After Effects', 'Microsoft Excel', 'Adobe Audition', 'Corel Painter',
+                'Adobe Firefly'
             ],
             datasets: [{
                 label: 'Years of Experience',
-                data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 9, 8, 7, 6, 5, 4, 3],
+                data: [37, 35, 31, 25, 23, 17, 14, 11, 10, 9, 8, 7, 6, 5, 4, 3, 3],
                 backgroundColor: [
                     'rgba(255,154,0,0.85)', 'rgba(49,168,255,0.85)', 'rgba(255,0,0,0.85)',
                     'rgba(255,51,102,0.85)', 'rgba(120,120,120,0.85)', 'rgba(50,50,50,0.85)',
                     'rgba(218,31,38,0.85)', 'rgba(138,43,226,0.85)', 'rgba(43,87,154,0.85)',
                     'rgba(235,72,36,0.85)', 'rgba(0,174,239,0.85)', 'rgba(153,51,255,0.85)',
                     'rgba(166,124,255,0.85)', 'rgba(33,115,70,0.85)', 'rgba(0,229,229,0.85)',
-                    'rgba(228,82,60,0.85)'
+                    'rgba(228,82,60,0.85)', 'rgba(255,80,180,0.85)'
                 ],
                 borderColor: [
                     'rgba(255,154,0,1)', 'rgba(49,168,255,1)', 'rgba(255,0,0,1)',
@@ -474,7 +475,7 @@ function createChart(ctx) {
                     'rgba(218,31,38,1)', 'rgba(138,43,226,1)', 'rgba(43,87,154,1)',
                     'rgba(235,72,36,1)', 'rgba(0,174,239,1)', 'rgba(153,51,255,1)',
                     'rgba(166,124,255,1)', 'rgba(33,115,70,1)', 'rgba(0,229,229,1)',
-                    'rgba(228,82,60,1)'
+                    'rgba(228,82,60,1)', 'rgba(255,80,180,1)'
                 ],
                 borderWidth: 2,
                 borderRadius: 6,
@@ -644,7 +645,10 @@ function initProjectModal() {
         document.body.style.overflow = 'hidden';
         modal.scrollTop = 0;
 
-        // Update nav button visibility
+        if (!document._modalKeydownHandler) {
+            document.addEventListener('keydown', onKeyDown);
+        }
+
         updateNavButtons();
     }
 
@@ -658,6 +662,10 @@ function initProjectModal() {
         modal.style.display = 'none';
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        if (document._modalKeydownHandler) {
+            document.removeEventListener('keydown', document._modalKeydownHandler);
+            document._modalKeydownHandler = null;
+        }
     }
 
     function showNext() {
@@ -714,12 +722,17 @@ function initProjectModal() {
     if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showNext(); });
     if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPrev(); });
 
-    document.addEventListener('keydown', function(e) {
+    function onKeyDown(e) {
         if (!modal || modal.style.display !== 'block') return;
         if (e.key === 'Escape') closeModal();
         if (e.key === 'ArrowRight') showNext();
         if (e.key === 'ArrowLeft') showPrev();
-    });
+    }
+
+    document.addEventListener('keydown', onKeyDown);
+
+    // Store reference for cleanup
+    document._modalKeydownHandler = onKeyDown;
 
     var touchStartX = 0;
     if (modal) {
