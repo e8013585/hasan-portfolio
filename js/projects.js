@@ -76,6 +76,17 @@ function initProjectFilters() {
 // Only tilt/lean toward cursor, no overlay
 // Uses data attribute to prevent duplicate listeners
 // =========================================
+function resetTilt() {
+    var self = this;
+    self.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    self.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    self.style.boxShadow = '';
+
+    setTimeout(function() {
+        self.style.transition = '';
+    }, 500);
+}
+
 function initProjectTiltEffect() {
     var projectItems = document.querySelectorAll('.project-item');
     var projectImages = document.querySelectorAll('.projects-masonry .project-img, .projects-grid .project-img');
@@ -99,11 +110,9 @@ function initProjectTiltEffect() {
                 var centerX = rect.width / 2;
                 var centerY = rect.height / 2;
 
-                // Calculate rotation based on cursor position
                 var rotateX = ((y - centerY) / centerY) * -10;
                 var rotateY = ((x - centerX) / centerX) * 10;
 
-                // Apply 3D transform — use perspective + rotate only, keep translateY separate
                 this.style.transform =
                     'perspective(1000px) ' +
                     'rotateX(' + rotateX + 'deg) ' +
@@ -113,16 +122,9 @@ function initProjectTiltEffect() {
                     (rotateY * -2) + 'px ' + (rotateX * 2) + 'px 30px rgba(0, 0, 0, 0.15)';
             });
 
-            item.addEventListener('mouseleave', function() {
-                var self = this;
-                self.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
-                self.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-                self.style.boxShadow = '';
+            item.addEventListener('mouseleave', resetTilt);
 
-                setTimeout(function() {
-                    self.style.transition = '';
-                }, 500);
-            });
+            item.addEventListener('touchend', resetTilt);
         })(projectItems[i]);
     }
 
@@ -160,16 +162,8 @@ function initProjectTiltEffect() {
                     (rotateY * -1.5) + 'px ' + (rotateX * 1.5) + 'px 25px rgba(0, 0, 0, 0.2)';
             });
 
-            img.addEventListener('mouseleave', function() {
-                var self = this;
-                self.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
-                self.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-                self.style.boxShadow = '';
-
-                setTimeout(function() {
-                    self.style.transition = '';
-                }, 500);
-            });
+            img.addEventListener('mouseleave', resetTilt);
+            img.addEventListener('touchend', resetTilt);
         })(projectImages[j]);
     }
 }
@@ -186,21 +180,9 @@ function initLazyLoading() {
                 if (entry.isIntersecting) {
                     var img = entry.target;
 
-                    img.style.opacity = '0';
-                    img.style.transition = 'opacity 0.5s ease';
-
-                    if (img.complete) {
-                        img.style.opacity = '1';
-                    } else {
-                        img.onload = function() {
-                            img.style.opacity = '1';
-                        };
-
-                        img.onerror = function() {
-                            img.style.opacity = '1';
-                            img.alt = 'Image not available';
-                        };
-                    }
+                    img.onerror = function() {
+                        img.alt = 'Image not available';
+                    };
 
                     imageObserver.unobserve(img);
                 }
