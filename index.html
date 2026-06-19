@@ -2,33 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://e8013585.github.io/hasan-portfolio/">
-    <meta property="og:title" content="Hasan Bayramoglu | Creative Director & Graphic Designer">
-    <meta property="og:description" content="35+ years of experience in creative direction, art direction, and graphic design">
-    <meta property="og:image" content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://e8013585.github.io/hasan-portfolio/">
-    <meta property="twitter:title" content="Hasan Bayramoglu | Creative Director & Graphic Designer">
-    <meta property="twitter:description" content="35+ years of experience in creative direction, art direction, and graphic design">
-    <meta property="twitter:image" content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
-    <meta property="og:image:alt" content="Hasan Bayramoglu Portfolio Preview">
-    <title>Hasan Bayramoglu | Graphic Designer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SEO & meta -->
+    <title>Hasan Bayramoglu — Creative Director & Graphic Designer</title>
+    <meta name="description" content="35 years of experience in creative direction, art direction, and graphic design. Based in California.">
+    <link rel="icon" type="image/x-icon" href="assets/technicalexperiencebackground.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://e8013585.github.io/hasan-portfolio/">
+    <meta property="og:title"       content="Hasan Bayramoglu — Creative Director & Graphic Designer">
+    <meta property="og:description" content="35 years of experience in creative direction, art direction, and graphic design.">
+    <meta property="og:image"       content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
+    <meta property="og:image:alt"   content="Hasan Bayramoglu portfolio preview">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:url"         content="https://e8013585.github.io/hasan-portfolio/">
+    <meta name="twitter:title"       content="Hasan Bayramoglu — Creative Director & Graphic Designer">
+    <meta name="twitter:description" content="35 years of experience in creative direction, art direction, and graphic design.">
+    <meta name="twitter:image"       content="https://e8013585.github.io/hasan-portfolio/assets/H_001.jpg">
+
+    <!-- Fonts: Outfit (body) + Playfair Display (headings) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Cursor Follower -->
-    <div class="cursor-follower"></div>
-    
-    <!-- Loading Screen -->
-    <div class="loader">
+
+    <!-- Skip to content — accessibility -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+
+    <!-- Custom cursor -->
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- Loading screen -->
+    <div class="loader" aria-hidden="true">
         <div class="loader-content">
-            <div class="loader-logo">HB</div>
+            <div class="loader-logo">H<span>B</span></div>
             <div class="loader-bar">
                 <div class="loader-progress"></div>
             </div>
@@ -36,173 +54,221 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#hero">
-                    <span class="logo-text">HFB</span>
+                <a href="#hero" aria-label="Home">
+                    <span class="logo-text">HB</span><span class="logo-dot">.</span>
                 </a>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#hero" class="nav-link" data-text="Home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-text="About">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#envoy" class="nav-link" data-text="Envoy">Envoy (current project)</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link" data-text="Work">Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#brands" class="nav-link" data-text="Clients">Brands</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
-                </li>
+
+            <ul class="nav-menu" id="nav-menu" role="list">
+                <li class="nav-item"><a href="#hero"       class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about"      class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#envoy"      class="nav-link">Envoy</a></li>
+                <li class="nav-item"><a href="#projects"   class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="#brands"     class="nav-link">Clients</a></li>
+                <li class="nav-item"><a href="#contact"    class="nav-link">Contact</a></li>
                 <li class="nav-item theme-toggle">
-                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                        <i class="fas fa-moon"  aria-hidden="true"></i>
+                        <i class="fas fa-sun"   aria-hidden="true"></i>
                     </button>
                 </li>
             </ul>
-            <div class="hamburger" aria-label="Menu">
+
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-bg-elements">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-        </div>
+    <!-- =====================
+         HERO
+         ===================== -->
+    <section id="hero" aria-label="Introduction">
+        <div class="hero-bg-elements" aria-hidden="true"></div>
+
         <div class="hero-container">
             <div class="hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
+                <p class="hero-greeting">California-based creative director</p>
+
                 <h1 class="hero-title">
                     <span class="title-line">Hasan</span>
                     <span class="title-line">Bayramoglu</span>
                 </h1>
-                <div class="hero-role">
+
+                <div class="hero-role" aria-live="polite">
                     <span class="role-wrapper">
                         <span class="role-text"></span>
-                        <span class="cursor">|</span>
+                        <span class="cursor" aria-hidden="true">|</span>
                     </span>
                 </div>
-                <p class="hero-description">Transforming visions into visual masterpieces for over 35 years</p>
+
+                <p class="hero-description">
+                    Thirty-five years working with international publications, global media groups,
+                    and brands across four continents.
+                </p>
+
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
+                        <span>View my work</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                     <a href="#contact" class="btn btn-outline">
-                        <span>Get in Touch</span>
+                        <span>Get in touch</span>
                     </a>
                 </div>
-                <div class="hero-stats">
+
+                <div class="hero-stats" aria-label="Career highlights">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="35">0</span>
-                        <span class="stat-plus">+</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-number" data-target="35">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years of practice</span>
                     </div>
-                    <div class="stat-divider"></div>
+                    <div class="stat-divider" aria-hidden="true"></div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="500">0</span>
-                        <span class="stat-plus">+</span>
-                        <span class="stat-label">Projects Completed</span>
+                        <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects delivered</span>
                     </div>
-                    <div class="stat-divider"></div>
+                    <div class="stat-divider" aria-hidden="true"></div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="100">0</span>
-                        <span class="stat-plus">+</span>
-                        <span class="stat-label">Trusted Clients</span>
+                        <span class="stat-number" data-target="8">0</span>
+                        <span class="stat-label">Envoy issues published</span>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll</span>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- =====================
+         ABOUT
+         ===================== -->
+    <section id="about" aria-labelledby="about-title">
         <div class="section-header">
-            <span class="section-subtitle">Get to know me</span>
-            <h2 class="section-title">About Me</h2>
+            <span class="section-label">Background</span>
+            <h2 class="section-title" id="about-title">About me</h2>
         </div>
+
         <div class="about-container">
             <div class="about-image-wrapper">
                 <div class="about-image-frame">
-                    <div class="image-decoration"></div>
-                    <img src="assets/profilepicture.jpg" alt="Hasan Bayramoglu" class="about-image">
+                    <div class="image-decoration" aria-hidden="true"></div>
+                    <img
+                        src="assets/profilepicture.jpg"
+                        alt="Hasan Bayramoglu, Creative Director"
+                        class="about-image"
+                        loading="lazy"
+                    >
                 </div>
-                <div class="about-badge">
+                <div class="about-badge" aria-label="35 years of excellence">
                     <span class="badge-number">35+</span>
-                    <span class="badge-text">Years of Excellence</span>
+                    <span class="badge-text">Years of excellence</span>
                 </div>
             </div>
+
             <div class="about-content">
+                <h3>Creative Director & Graphic Designer</h3>
                 <div class="about-intro">
-                    <h3>Creative Director & Graphic Designer</h3>
-                    <p>Hello, I’m Hasan — a California-based Creative Director, Art Director, and Graphic Designer with 30+ years of experience in international magazine publishing, editorial design, and brand development. I’ve worked with leading global media groups including Condé Nast Magazine Group (New York–based), Hearst Communications, Doğuş Media Group, and Haymarket Media Group, contributing to renowned titles such as Vogue, GQ, National Geographic, Esquire, Robb Report, Billboard, EVO, CNBC-e Business, NG Kids, Autocar, Stuff, T3, PlayStation, FHM, and Yachting World.</p>
-                    <p>A pioneer of digital magazine publishing across iOS and Android platforms, I specialize in modern magazine design, Adobe Creative tools, and crafting compelling visual narratives with a strong eye for detail. I’m currently serving as Creative Director of Envoy Magazine, distributed throughout the U.S., Canada, Europe, and Turkey, creating design work that resonates with audiences worldwide.</p>
+                    <p>I'm Hasan — a California-based Creative Director, Art Director, and Graphic Designer with over three decades of experience in international magazine publishing, editorial design, and brand development. I've worked with leading global media groups including Condé Nast (New York), Hearst Communications, Doğuş Media Group, and Haymarket Media Group, contributing to titles such as Vogue, GQ, National Geographic, Esquire, Robb Report, Billboard, EVO, Autocar, Stuff, T3, PlayStation, FHM, and Yachting World.</p>
+                    <p>A pioneer of digital magazine publishing across iOS and Android platforms, I specialise in modern magazine design, the Adobe Creative suite, and crafting compelling visual narratives with a strong eye for detail. I currently serve as Creative Director of Envoy Magazine — distributed across the US, Canada, Europe, and Turkey.</p>
                 </div>
-                
+
                 <div class="skills-section">
                     <h4>
-                        <i class="fas fa-palette"></i>
-                        Core Competencies
+                        <i class="fas fa-palette" aria-hidden="true"></i>
+                        Core competencies
                     </h4>
                     <div class="skills-grid">
                         <div class="skill-category">
-                            <h5>Design Software</h5>
+                            <h5>Design software</h5>
                             <div class="skill-tags">
-                                <span class="skill-tag">Adobe Creative Cloud</span>
-                                <span class="skill-tag">Adobe InDesign</span>
-                                <span class="skill-tag">Adobe Photoshop</span>
-                                <span class="skill-tag">Adobe Illustrator</span>
-                                <span class="skill-tag">Adobe After Effects</span>
-                                <span class="skill-tag">Adobe Premiere Pro</span>
-                                <span class="skill-tag">QuarkXPress</span>
+                                <span class="skill-tag">
+                                    <img src="assets/creativecloud.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Creative Cloud
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/indesign.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe InDesign
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/photoshop.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Photoshop
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/illustrator.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Illustrator
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/aftereffects.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe After Effects
+                                </span>
+
                             </div>
                         </div>
+
                         <div class="skill-category">
                             <h5>Expertise</h5>
                             <div class="skill-tags">
                                 <span class="skill-tag">UI/UX Design</span>
-                                <span class="skill-tag">Magazine Layout</span>
-                                <span class="skill-tag">Brand Identity</span>
-                                <span class="skill-tag">Print Design</span>
-                                <span class="skill-tag">Web Design</span>
-                                <span class="skill-tag">Digital Media</span>
-                                <span class="skill-tag">Social Media</span>
-                                <span class="skill-tag">Fair Design</span>
-                                <span class="skill-tag">Logo Design</span>
-                                <span class="skill-tag">Brand Design</span>
-                                <span class="skill-tag">Poster Design</span>
+                                <span class="skill-tag">Magazine layout</span>
+                                <span class="skill-tag">Brand identity</span>
+                                <span class="skill-tag">Print design</span>
+                                <span class="skill-tag">Web design</span>
+                                <span class="skill-tag">Digital media</span>
+                                <span class="skill-tag">Social media</span>
+                                <span class="skill-tag">Exhibition design</span>
+                                <span class="skill-tag">Logo design</span>
+                                <span class="skill-tag">Poster design</span>
                             </div>
                         </div>
+
                         <div class="skill-category">
-                            <h5>Additional Skills</h5>
+                            <h5>Additional tools</h5>
                             <div class="skill-tags">
-                                <span class="skill-tag">Adobe Bridge</span>
-                                <span class="skill-tag">Adobe Audition</span>
-                                <span class="skill-tag">Corel Painter</span>
-                                <span class="skill-tag">Microsoft Excel</span>
-                                <span class="skill-tag">Microsoft PowerPoint</span>
-                                <span class="skill-tag">Microsoft Word</span>
-                                <span class="skill-tag">Microsoft Outlook</span>
-                                <span class="skill-tag">Zoom</span>
-                                <span class="skill-tag">Turkish (Fluent)</span>
+                                <span class="skill-tag">
+                                    <img src="assets/bridge.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Bridge
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/audition.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Audition
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/corelpainter.png" alt="" class="skill-icon" loading="lazy">
+                                    Corel Painter
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/excel.png" alt="" class="skill-icon" loading="lazy">
+                                    Microsoft Excel
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/powerpoint.png" alt="" class="skill-icon" loading="lazy">
+                                    Microsoft PowerPoint
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/word.png" alt="" class="skill-icon" loading="lazy">
+                                    Microsoft Word
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/premierepro.png" alt="" class="skill-icon" loading="lazy">
+                                    Adobe Premiere Pro
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/quarkxpress.png" alt="" class="skill-icon" loading="lazy">
+                                    QuarkXPress
+                                </span>
+                                <span class="skill-tag">
+                                    <img src="assets/turkishlanguageicon.png" alt="" class="skill-icon" loading="lazy">
+                                    Turkish (fluent)
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -211,1050 +277,521 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
+    <!-- =====================
+         EXPERIENCE
+         ===================== -->
+    <section id="experience" aria-labelledby="experience-title">
         <div class="section-header">
-            <span class="section-subtitle">My Journey</span>
-            <h2 class="section-title">Technical Experience</h2>
+            <span class="section-label">Skills over time</span>
+            <h2 class="section-title" id="experience-title">Technical experience</h2>
         </div>
         <div class="experience-container">
             <div class="chart-wrapper">
                 <div class="chart-container">
-                    <canvas id="experienceChart"></canvas>
+                    <canvas id="experienceChart" role="img" aria-label="Bar chart showing years of experience per software tool"></canvas>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Envoy Magazine Section -->
-<section id="envoy">
-    <div class="section-header">
-        <span class="section-subtitle">Current Project</span>
-        <h2 class="section-title">Envoy Magazine</h2>
-        <p class="section-description">A premium lifestyle and culture magazine distributed across the United States, Canada, Europe, and Turkey</p>
-    </div>
-    <div class="envoy-container">
-        <div class="envoy-intro">
-            <div class="envoy-intro-content">
-                <h3>About Envoy</h3>
-                <p>Envoy Magazine is an internationally distributed lifestyle and culture publication that I currently serve as Creative Director for. The magazine covers a diverse range of topics including travel, culture, cuisine, art, fashion, and global perspectives — crafted for a discerning readership that values quality editorial content and sophisticated visual design.</p>
-                <p>Since its inception, I have been responsible for the complete visual identity of Envoy — from logo design and brand guidelines to every single page layout, cover design, typography selection, and photo direction. Each issue is meticulously crafted to deliver a cohesive, immersive reading experience that balances editorial depth with visual elegance.</p>
-                <p>Envoy is actively printed and sold in major bookstores nationwide and internationally, including retailers across the United States, various regions in Europe, Canada, and Türkiye. The magazine bridges Eastern and Western cultures, offering readers unique stories and perspectives from around the world.</p>
-                <div class="envoy-highlights">
-                    <div class="envoy-highlight-item">
-                        <i class="fas fa-globe-americas"></i>
-                        <div>
-                            <strong>International Distribution</strong>
-                            <span>USA, Canada, Europe & Türkiye</span>
-                        </div>
-                    </div>
-                    <div class="envoy-highlight-item">
-                        <i class="fas fa-paint-brush"></i>
-                        <div>
-                            <strong>Full Creative Direction</strong>
-                            <span>Layout, covers, branding & identity</span>
-                        </div>
-                    </div>
-                    <div class="envoy-highlight-item">
-                        <i class="fas fa-book-open"></i>
-                        <div>
-                            <strong>Print & Digital</strong>
-                            <span>Available in bookstores & online</span>
-                        </div>
-                    </div>
-                    <div class="envoy-highlight-item">
-                        <i class="fas fa-layer-group"></i>
-                        <div>
-                            <strong>8 Issues Published</strong>
-                            <span>Ongoing publication with growing readership</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cover Carousel -->
-        <div class="envoy-covers-section">
-            <h4 class="envoy-section-heading"><i class="fas fa-bookmark"></i> All Covers — 8 Issues</h4>
-            <p class="envoy-section-subheading">Drag or swipe to browse all covers</p>
-            <div class="envoy-carousel-wrapper">
-                <button class="envoy-carousel-btn envoy-carousel-prev" aria-label="Previous cover">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="envoy-carousel-viewport">
-                    <div class="envoy-carousel-track">
-                        <div class="envoy-cover-slide" data-issue="1">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/01_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 1 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 01</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="2">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/02_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 2 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 02</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="3">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/03_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 3 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 03</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="4">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/04_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 4 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 04</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="5">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/05_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 5 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 05</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="6">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/06_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 6 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 06</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="7">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/07_ENVOY_COVER.jpg" alt="Envoy Magazine Issue 7 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 07</div>
-                            </div>
-                        </div>
-                        <div class="envoy-cover-slide" data-issue="8">
-                            <div class="envoy-cover-card">
-                                <img src="assets/envoy/ENVOY_8_2026_cover.jpg" alt="Envoy Magazine Issue 8 Cover" class="envoy-cover-img" draggable="false" loading="lazy">
-                                <div class="envoy-cover-label">Issue 08</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="envoy-carousel-btn envoy-carousel-next" aria-label="Next cover">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <div class="envoy-carousel-dots">
-                <button class="envoy-dot active" data-index="0" aria-label="Go to cover 1"></button>
-                <button class="envoy-dot" data-index="1" aria-label="Go to cover 2"></button>
-                <button class="envoy-dot" data-index="2" aria-label="Go to cover 3"></button>
-                <button class="envoy-dot" data-index="3" aria-label="Go to cover 4"></button>
-                <button class="envoy-dot" data-index="4" aria-label="Go to cover 5"></button>
-                <button class="envoy-dot" data-index="5" aria-label="Go to cover 6"></button>
-                <button class="envoy-dot" data-index="6" aria-label="Go to cover 7"></button>
-                <button class="envoy-dot" data-index="7" aria-label="Go to cover 8"></button>
-            </div>
-        </div>
-        
-        <div class="envoy-pages-section">
-            <h4 class="envoy-section-heading"><i class="fas fa-images"></i> Interior Pages & Spreads</h4>
-            <p class="envoy-section-subheading">A selection of editorial spreads and page designs from various Envoy issues</p>
-            <div class="envoy-pages-gallery">
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-1.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="0">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-2.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="1">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-3.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="2">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-4.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="3">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-5.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="4">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/envoy-page-6.jpg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="5">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.20.48.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="6">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.21.15.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="7">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.22.06.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="8">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.22.44.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="9">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.23.01.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="10">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.23.28.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="11">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.25.20.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="12">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.25.38.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="13">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.26.20.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="14">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.26.35.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="15">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.26.43.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="16">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.27.37.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="17">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.29.10.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="18">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.29.21.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="19">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.29.53.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="20">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.30.06.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="21">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.30.29.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="22">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.30.56.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="23">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.31.18.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="24">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.31.30.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="25">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.32.02.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="26">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.32.28.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="27">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.32.37.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="28">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.32.54.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="29">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.33.09.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="30">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.33.54.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="31">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.34.12.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="32">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.34.25.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="33">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.34.53.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="34">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.35.20.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="35">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.35.43.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="36">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.35.51.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="37">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.36.03.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="38">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.37.29.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="39">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.37.56.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="40">
-                </div>
-                <div class="envoy-page-item">
-                    <img src="assets/envoy/Envoypage 17.38.05.jpeg" alt="Envoy Magazine Interior Page" class="envoy-page-img" loading="lazy" data-envoy-page="41">
-                </div>
-            </div>
-        </div>
-
-        <!-- Detail Cards -->
-        <div class="envoy-details">
-            <div class="envoy-detail-card">
-                <h4>My Role</h4>
-                <ul>
-                    <li>Complete creative direction for every issue</li>
-                    <li>Cover design and concept development</li>
-                    <li>Interior layout and typography</li>
-                    <li>Photo direction and image editing</li>
-                    <li>Brand identity and visual guidelines</li>
-                    <li>Print production oversight</li>
-                    <li>Digital edition design (iOS & Android)</li>
-                    <li>Website design (envoymag.com)</li>
-                </ul>
-            </div>
-            <div class="envoy-detail-card">
-                <h4>Tools & Process</h4>
-                <ul>
-                    <li>Adobe InDesign — Page layout & master pages</li>
-                    <li>Adobe Photoshop — Photo retouching & compositing</li>
-                    <li>Adobe Illustrator — Vector graphics & logos</li>
-                    <li>Adobe Lightroom — Color grading & photo selection</li>
-                    <li>Prepress & CMYK color management</li>
-                    <li>Typography pairing & grid systems</li>
-                    <li>Cross-platform digital publishing</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="envoy-cta">
-            <a href="https://envoymag.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                <span>Visit Envoy Magazine</span>
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-    <!-- Projects Section -->
-    <section id="projects">
+    <!-- =====================
+         ENVOY MAGAZINE
+         ===================== -->
+    <section id="envoy" aria-labelledby="envoy-title">
         <div class="section-header">
-            <span class="section-subtitle">My Portfolio</span>
-            <h2 class="section-title">Featured Work</h2>
-            <p class="section-description">A curated selection of projects spanning over three decades of creative excellence</p>
+            <span class="section-label">Current project</span>
+            <h2 class="section-title" id="envoy-title">Envoy Magazine</h2>
+            <p class="section-description">A premium lifestyle and culture publication distributed across the United States, Canada, Europe, and Turkey.</p>
         </div>
+
+        <div class="envoy-container">
+
+            <!-- Intro -->
+            <div class="envoy-intro">
+                <div class="envoy-intro-content">
+                    <h3>About Envoy</h3>
+                    <p>Envoy Magazine is an internationally distributed lifestyle and culture publication that I currently serve as Creative Director for. Each issue covers travel, culture, cuisine, art, fashion, and global perspectives — crafted for a readership that values quality editorial content and sophisticated visual design.</p>
+                    <p>Since its inception, I have been responsible for the complete visual identity of Envoy — from the logo and brand guidelines through to every page layout, cover design, typography selection, and photo direction. Each issue is meticulously produced to deliver a cohesive, immersive reading experience that balances editorial depth with visual elegance.</p>
+                    <p>Envoy is printed and sold in major bookstores across the United States, Europe, Canada, and Türkiye. The magazine bridges Eastern and Western cultures, offering readers unique stories and perspectives from around the world.</p>
+
+                    <div class="envoy-highlights">
+                        <div class="envoy-highlight-item">
+                            <i class="fas fa-globe-americas" aria-hidden="true"></i>
+                            <div>
+                                <strong>International distribution</strong>
+                                <span>USA, Canada, Europe & Türkiye</span>
+                            </div>
+                        </div>
+                        <div class="envoy-highlight-item">
+                            <i class="fas fa-paint-brush" aria-hidden="true"></i>
+                            <div>
+                                <strong>Full creative direction</strong>
+                                <span>Layout, covers, branding & identity</span>
+                            </div>
+                        </div>
+                        <div class="envoy-highlight-item">
+                            <i class="fas fa-book-open" aria-hidden="true"></i>
+                            <div>
+                                <strong>Print & digital</strong>
+                                <span>Available in bookstores and online</span>
+                            </div>
+                        </div>
+                        <div class="envoy-highlight-item">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i>
+                            <div>
+                                <strong>8 issues published</strong>
+                                <span>Ongoing publication with growing readership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cover carousel -->
+            <div class="envoy-covers-section">
+                <h3 class="envoy-section-heading">
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                    All covers — 8 issues
+                </h3>
+                <p class="envoy-section-subheading">Drag or swipe to browse. Click the centre cover to open full-screen.</p>
+
+                <div class="envoy-carousel-wrapper">
+                    <button class="envoy-carousel-btn envoy-carousel-prev" aria-label="Previous cover">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="envoy-carousel-viewport">
+                        <div class="envoy-carousel-track">
+                            <div class="envoy-cover-slide" data-issue="1">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/01_ENVOY_COVER.jpg" alt="Envoy Magazine issue 1 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 01</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="2">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/02_ENVOY_COVER.jpg" alt="Envoy Magazine issue 2 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 02</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="3">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/03_ENVOY_COVER.jpg" alt="Envoy Magazine issue 3 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 03</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="4">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/04_ENVOY_COVER.jpg" alt="Envoy Magazine issue 4 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 04</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="5">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/05_ENVOY_COVER.jpg" alt="Envoy Magazine issue 5 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 05</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="6">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/06_ENVOY_COVER.jpg" alt="Envoy Magazine issue 6 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 06</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="7">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/07_ENVOY_COVER.jpg" alt="Envoy Magazine issue 7 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 07</div>
+                                </div>
+                            </div>
+                            <div class="envoy-cover-slide" data-issue="8">
+                                <div class="envoy-cover-card">
+                                    <img src="assets/envoy/ENVOY_8_2026_cover.jpg" alt="Envoy Magazine issue 8 cover" class="envoy-cover-img" draggable="false" loading="lazy">
+                                    <div class="envoy-cover-label">Issue 08</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="envoy-carousel-btn envoy-carousel-next" aria-label="Next cover">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="envoy-carousel-dots" role="tablist" aria-label="Cover navigation">
+                    <button class="envoy-dot active" data-index="0" aria-label="Cover 1" role="tab" aria-selected="true"></button>
+                    <button class="envoy-dot" data-index="1" aria-label="Cover 2" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="2" aria-label="Cover 3" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="3" aria-label="Cover 4" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="4" aria-label="Cover 5" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="5" aria-label="Cover 6" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="6" aria-label="Cover 7" role="tab" aria-selected="false"></button>
+                    <button class="envoy-dot" data-index="7" aria-label="Cover 8" role="tab" aria-selected="false"></button>
+                </div>
+            </div>
+
+            <!-- Interior pages gallery -->
+            <div class="envoy-pages-section">
+                <h3 class="envoy-section-heading">
+                    <i class="fas fa-images" aria-hidden="true"></i>
+                    Interior pages & spreads
+                </h3>
+                <p class="envoy-section-subheading">A selection of editorial spreads and page designs from various Envoy issues. Click any image to open full-screen.</p>
+
+                <div class="envoy-pages-gallery">
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-1.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="0"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-2.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="1"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-3.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="2"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-4.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="3"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-5.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="4"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/envoy-page-6.jpg"              alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="5"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.20.48.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="6"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.21.15.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="7"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.22.06.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="8"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.22.44.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="9"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.23.01.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="10"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.23.28.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="11"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.25.20.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="12"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.25.38.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="13"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.26.20.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="14"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.26.35.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="15"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.26.43.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="16"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.27.37.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="17"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.29.10.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="18"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.29.21.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="19"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.29.53.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="20"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.30.06.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="21"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.30.29.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="22"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.30.56.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="23"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.31.18.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="24"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.31.30.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="25"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.32.02.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="26"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.32.28.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="27"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.32.37.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="28"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.32.54.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="29"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.33.09.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="30"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.33.54.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="31"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.34.12.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="32"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.34.25.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="33"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.34.53.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="34"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.35.20.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="35"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.35.43.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="36"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.35.51.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="37"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.36.03.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="38"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.37.29.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="39"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.37.56.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="40"></div>
+                    <div class="envoy-page-item"><img src="assets/envoy/Envoypage 17.38.05.jpeg"       alt="Envoy Magazine editorial spread" class="envoy-page-img" loading="lazy" data-envoy-page="41"></div>
+                </div>
+            </div>
+
+            <!-- Detail cards -->
+            <div class="envoy-details">
+                <div class="envoy-detail-card">
+                    <h4>My role</h4>
+                    <ul>
+                        <li>Complete creative direction for every issue</li>
+                        <li>Cover design and concept development</li>
+                        <li>Interior layout and typography</li>
+                        <li>Photo direction and image editing</li>
+                        <li>Brand identity and visual guidelines</li>
+                        <li>Print production oversight</li>
+                        <li>Digital edition design (iOS & Android)</li>
+                        <li>Website design (envoymag.com)</li>
+                    </ul>
+                </div>
+                <div class="envoy-detail-card">
+                    <h4>Tools & process</h4>
+                    <ul>
+                        <li>Adobe InDesign — page layout & master pages</li>
+                        <li>Adobe Photoshop — photo retouching & compositing</li>
+                        <li>Adobe Illustrator — vector graphics & logos</li>
+                        <li>Adobe Lightroom — colour grading & photo selection</li>
+                        <li>Prepress & CMYK colour management</li>
+                        <li>Typography pairing & grid systems</li>
+                        <li>Cross-platform digital publishing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="envoy-cta">
+                <a href="https://envoymag.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>Visit Envoy Magazine</span>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================
+         PROJECTS
+         ===================== -->
+    <section id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title" id="projects-title">Selected work</h2>
+            <p class="section-description">A curated selection spanning three decades of creative practice.</p>
+        </div>
+
         <div class="projects-container">
             <div class="projects-showcase">
-                <!-- Featured Banner Image -->
+
+                <!-- Featured -->
                 <div class="featured-project">
                     <div class="featured-image">
-                        <img src="assets/H_001.jpg" alt="Featured Project" class="project-img" data-index="0">
+                        <img src="assets/H_001.jpg" alt="Featured project — editorial spread" class="project-img" loading="lazy" data-index="0">
                         <div class="featured-overlay">
-                            <span class="featured-tag">Featured Work</span>
+                            <span class="featured-tag">Featured</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Filter Buttons -->
+
+                <!-- Filter -->
                 <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn active" data-filter="all">All projects</button>
                 </div>
-                
-                <!-- Masonry Grid -->
+
+                <!-- Grid -->
                 <div class="projects-masonry">
-                    <div class="project-item" data-category="print">
-                        <img src="assets/H_002.jpg" alt="Project 2" class="project-img" data-index="1">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/H_003.jpg" alt="Project 3" class="project-img" data-index="2">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/H_004.jpg" alt="Project 4" class="project-img" data-index="3">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/H_005.jpg" alt="Project 5" class="project-img" data-index="4">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/H_006.jpg" alt="Project 6" class="project-img" data-index="5">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/H_007.jpg" alt="Project 7" class="project-img" data-index="6">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/H_008.jpg" alt="Project 8" class="project-img" data-index="7">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/H_009.jpg" alt="Project 9" class="project-img" data-index="8">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/H_010.jpg" alt="Project 10" class="project-img" data-index="9">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/H_011.jpg" alt="Project 11" class="project-img" data-index="10">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/H_012.jpg" alt="Project 12" class="project-img" data-index="11">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/H_013.jpg" alt="Project 13" class="project-img" data-index="12">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/H_014.jpg" alt="Project 14" class="project-img" data-index="13">
-                        <div class="project-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Additional Images -->
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (1).jpg" alt="Project 15" class="project-img" data-index="14">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (2).jpg" alt="Project 16" class="project-img" data-index="15">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (3).jpg" alt="Project 17" class="project-img" data-index="16">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (4).jpg" alt="Project 18" class="project-img" data-index="17">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (5).jpg" alt="Project 19" class="project-img" data-index="18">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (6).jpg" alt="Project 20" class="project-img" data-index="19">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (7).jpg" alt="Project 21" class="project-img" data-index="20">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (8).jpg" alt="Project 22" class="project-img" data-index="21">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (9).jpg" alt="Project 23" class="project-img" data-index="22">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (10).jpg" alt="Project 24" class="project-img" data-index="23">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (11).jpg" alt="Project 25" class="project-img" data-index="24">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (12).jpg" alt="Project 26" class="project-img" data-index="25">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (13).jpg" alt="Project 27" class="project-img" data-index="26">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (14).jpg" alt="Project 28" class="project-img" data-index="27">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (15).jpg" alt="Project 29" class="project-img" data-index="28">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (16).jpg" alt="Project 30" class="project-img" data-index="29">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (17).jpg" alt="Project 31" class="project-img" data-index="30">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (18).jpg" alt="Project 32" class="project-img" data-index="31">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (19).jpg" alt="Project 33" class="project-img" data-index="32">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/image (20).jpg" alt="Project 34" class="project-img" data-index="33">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/image (21).jpg" alt="Project 35" class="project-img" data-index="34">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/image (22).jpg" alt="Project 36" class="project-img" data-index="35">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    
-                    <!-- More Images -->
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (1).jpg" alt="Project 37" class="project-img" data-index="36">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (2).jpg" alt="Project 38" class="project-img" data-index="37">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (3).jpg" alt="Project 39" class="project-img" data-index="38">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (4).jpg" alt="Project 40" class="project-img" data-index="39">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (5).jpg" alt="Project 41" class="project-img" data-index="40">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (6).jpg" alt="Project 42" class="project-img" data-index="41">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (7).jpg" alt="Project 43" class="project-img" data-index="42">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (8).jpg" alt="Project 44" class="project-img" data-index="43">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (9).jpg" alt="Project 45" class="project-img" data-index="44">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (10).jpg" alt="Project 46" class="project-img" data-index="45">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (11).jpg" alt="Project 47" class="project-img" data-index="46">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (12).jpg" alt="Project 48" class="project-img" data-index="47">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (13).jpg" alt="Project 49" class="project-img" data-index="48">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (14).jpg" alt="Project 50" class="project-img" data-index="49">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (15).jpg" alt="Project 51" class="project-img" data-index="50">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (16).jpg" alt="Project 52" class="project-img" data-index="51">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (17).jpg" alt="Project 53" class="project-img" data-index="52">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (18).jpg" alt="Project 54" class="project-img" data-index="53">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (19).jpg" alt="Project 55" class="project-img" data-index="54">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (20).jpg" alt="Project 56" class="project-img" data-index="55">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (21).jpg" alt="Project 57" class="project-img" data-index="56">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (22).jpg" alt="Project 58" class="project-img" data-index="57">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (23).jpg" alt="Project 59" class="project-img" data-index="58">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (24).jpg" alt="Project 60" class="project-img" data-index="59">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (25).jpg" alt="Project 61" class="project-img" data-index="60">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (26).jpg" alt="Project 62" class="project-img" data-index="61">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (27).jpg" alt="Project 63" class="project-img" data-index="62">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (28).jpg" alt="Project 64" class="project-img" data-index="63">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/moreimages (29).jpg" alt="Project 65" class="project-img" data-index="64">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/moreimages (30).jpg" alt="Project 66" class="project-img" data-index="65">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/moreimages (31).jpg" alt="Project 67" class="project-img" data-index="66">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    
-                    <!-- MMore Images -->
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/mmoreimages (1).jpg" alt="Project 68" class="project-img" data-index="67">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/mmoreimages (2).jpg" alt="Project 69" class="project-img" data-index="68">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/mmoreimages (3).jpg" alt="Project 70" class="project-img" data-index="69">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/mmoreimages (4).jpg" alt="Project 71" class="project-img" data-index="70">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/mmoreimages (5).jpg" alt="Project 72" class="project-img" data-index="71">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/mmoreimages (6).jpg" alt="Project 73" class="project-img" data-index="72">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/mmoreimages (7).jpg" alt="Project 74" class="project-img" data-index="73">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/mmoreimages (8).jpg" alt="Project 75" class="project-img" data-index="74">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/mmoreimages (9).jpg" alt="Project 76" class="project-img" data-index="75">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/mmoreimages (10).jpg" alt="Project 77" class="project-img" data-index="76">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/mmoreimages (11).jpg" alt="Project 78" class="project-img" data-index="77">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/imageee1.jpeg" alt="Project 79" class="project-img" data-index="78">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/imageee2.jpeg" alt="Project 80" class="project-img" data-index="79">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-81.jpg" alt="Project 81" class="project-img" data-index="80">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-82.jpg" alt="Project 82" class="project-img" data-index="81">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-83.jpg" alt="Project 83" class="project-img" data-index="82">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-84.jpg" alt="Project 84" class="project-img" data-index="83">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-85.jpg" alt="Project 85" class="project-img" data-index="84">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-86.jpg" alt="Project 86" class="project-img" data-index="85">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-87.jpg" alt="Project 87" class="project-img" data-index="86">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-88.jpg" alt="Project 88" class="project-img" data-index="87">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-89.jpg" alt="Project 89" class="project-img" data-index="88">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-90.jpg" alt="Project 90" class="project-img" data-index="89">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-91.jpg" alt="Project 91" class="project-img" data-index="90">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-92.jpg" alt="Project 92" class="project-img" data-index="91">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-93.jpg" alt="Project 93" class="project-img" data-index="92">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-94.jpg" alt="Project 94" class="project-img" data-index="93">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-95.jpg" alt="Project 95" class="project-img" data-index="94">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-96.jpg" alt="Project 96" class="project-img" data-index="95">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-97.jpg" alt="Project 97" class="project-img" data-index="96">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-98.jpg" alt="Project 98" class="project-img" data-index="97">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-99.jpg" alt="Project 99" class="project-img" data-index="98">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-100.jpg" alt="Project 100" class="project-img" data-index="99">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-101.jpg" alt="Project 101" class="project-img" data-index="100">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-102.jpg" alt="Project 102" class="project-img" data-index="101">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-103.jpg" alt="Project 103" class="project-img" data-index="102">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-104.jpg" alt="Project 104" class="project-img" data-index="103">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-105.jpg" alt="Project 105" class="project-img" data-index="104">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-106.jpg" alt="Project 106" class="project-img" data-index="105">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-107.jpg" alt="Project 107" class="project-img" data-index="106">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-108.jpg" alt="Project 108" class="project-img" data-index="107">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-109.jpg" alt="Project 109" class="project-img" data-index="108">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-110.jpg" alt="Project 110" class="project-img" data-index="109">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-111.jpg" alt="Project 111" class="project-img" data-index="110">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-112.jpg" alt="Project 112" class="project-img" data-index="111">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-113.jpg" alt="Project 113" class="project-img" data-index="112">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-114.jpg" alt="Project 114" class="project-img" data-index="113">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-115.jpg" alt="Project 115" class="project-img" data-index="114">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-116.jpg" alt="Project 116" class="project-img" data-index="115">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-117.jpg" alt="Project 117" class="project-img" data-index="116">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-118.jpg" alt="Project 118" class="project-img" data-index="117">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-119.jpg" alt="Project 119" class="project-img" data-index="118">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-120.jpg" alt="Project 120" class="project-img" data-index="119">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-121.jpg" alt="Project 121" class="project-img" data-index="120">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-122.jpg" alt="Project 122" class="project-img" data-index="121">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-123.jpg" alt="Project 123" class="project-img" data-index="122">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-124.jpg" alt="Project 124" class="project-img" data-index="123">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-125.jpg" alt="Project 125" class="project-img" data-index="124">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-126.jpg" alt="Project 126" class="project-img" data-index="125">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-127.jpg" alt="Project 127" class="project-img" data-index="126">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-128.jpg" alt="Project 128" class="project-img" data-index="127">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-129.jpg" alt="Project 129" class="project-img" data-index="128">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-130.jpg" alt="Project 130" class="project-img" data-index="129">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-131.jpg" alt="Project 131" class="project-img" data-index="130">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-132.jpg" alt="Project 132" class="project-img" data-index="131">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-133.jpg" alt="Project 133" class="project-img" data-index="132">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-134.jpg" alt="Project 134" class="project-img" data-index="133">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-135.jpg" alt="Project 135" class="project-img" data-index="134">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-136.jpg" alt="Project 136" class="project-img" data-index="135">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-137.jpg" alt="Project 137" class="project-img" data-index="136">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-138.jpg" alt="Project 138" class="project-img" data-index="137">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-139.jpg" alt="Project 139" class="project-img" data-index="138">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-140.png" alt="Project 140" class="project-img" data-index="139">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-141.jpg" alt="Project 141" class="project-img" data-index="140">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-142.png" alt="Project 142" class="project-img" data-index="141">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="digital">
-                        <img src="assets/project-143.png" alt="Project 143" class="project-img" data-index="142">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="print">
-                        <img src="assets/project-144.jpg" alt="Project 144" class="project-img" data-index="143">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="project-item" data-category="branding">
-                        <img src="assets/project-145.jpeg" alt="Project 145" class="project-img" data-index="144">
-                        <div class="project-overlay"><i class="fas fa-expand"></i></div>
-                    </div>
+                    <div class="project-item" data-category="print">    <img src="assets/H_002.jpg"            alt="Editorial design project"            class="project-img" loading="lazy" data-index="1"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/H_003.jpg"            alt="Digital design project"              class="project-img" loading="lazy" data-index="2"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/H_004.jpg"            alt="Branding project"                    class="project-img" loading="lazy" data-index="3"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/H_005.jpg"            alt="Print design project"                class="project-img" loading="lazy" data-index="4"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/H_006.jpg"            alt="Digital design project"              class="project-img" loading="lazy" data-index="5"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/H_007.jpg"            alt="Branding project"                    class="project-img" loading="lazy" data-index="6"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/H_008.jpg"            alt="Print design project"                class="project-img" loading="lazy" data-index="7"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/H_009.jpg"            alt="Digital design project"              class="project-img" loading="lazy" data-index="8"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/H_010.jpg"            alt="Branding project"                    class="project-img" loading="lazy" data-index="9"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/H_011.jpg"            alt="Print design project"                class="project-img" loading="lazy" data-index="10"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/H_012.jpg"            alt="Digital design project"              class="project-img" loading="lazy" data-index="11"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/H_013.jpg"            alt="Branding project"                    class="project-img" loading="lazy" data-index="12"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/H_014.jpg"            alt="Print design project"                class="project-img" loading="lazy" data-index="13"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (1).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="14"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (2).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="15"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (3).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="16"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (4).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="17"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (5).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="18"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (6).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="19"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (7).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="20"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (8).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="21"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (9).jpg"        alt="Design project"                      class="project-img" loading="lazy" data-index="22"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (10).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="23"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (11).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="24"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (12).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="25"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (13).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="26"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (14).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="27"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (15).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="28"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (16).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="29"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (17).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="30"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (18).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="31"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (19).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="32"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/image (20).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="33"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/image (21).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="34"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/image (22).jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="35"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (1).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="36"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (2).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="37"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (3).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="38"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (4).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="39"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (5).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="40"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (6).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="41"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (7).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="42"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (8).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="43"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (9).jpg"   alt="Design project"                      class="project-img" loading="lazy" data-index="44"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (10).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="45"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (11).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="46"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (12).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="47"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (13).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="48"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (14).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="49"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (15).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="50"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (16).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="51"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (17).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="52"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (18).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="53"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (19).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="54"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (20).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="55"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (21).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="56"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (22).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="57"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (23).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="58"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (24).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="59"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (25).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="60"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (26).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="61"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (27).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="62"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (28).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="63"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/moreimages (29).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="64"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/moreimages (30).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="65"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/moreimages (31).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="66"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/mmoreimages (1).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="67"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/mmoreimages (2).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="68"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/mmoreimages (3).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="69"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/mmoreimages (4).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="70"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/mmoreimages (5).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="71"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/mmoreimages (6).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="72"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/mmoreimages (7).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="73"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/mmoreimages (8).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="74"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/mmoreimages (9).jpg"  alt="Design project"                      class="project-img" loading="lazy" data-index="75"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/mmoreimages (10).jpg" alt="Design project"                      class="project-img" loading="lazy" data-index="76"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/mmoreimages (11).jpg" alt="Design project"                      class="project-img" loading="lazy" data-index="77"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/imageee1.jpeg"        alt="Design project"                      class="project-img" loading="lazy" data-index="78"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/imageee2.jpeg"        alt="Design project"                      class="project-img" loading="lazy" data-index="79"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-81.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="80"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-82.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="81"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-83.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="82"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-85.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="84"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-86.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="85"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-88.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="87"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-90.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="89"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-91.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="90"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-92.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="91"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-94.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="93"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-95.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="94"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-96.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="95"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-97.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="96"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-98.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="97"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-99.jpg"       alt="Design project"                      class="project-img" loading="lazy" data-index="98"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-100.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="99"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-101.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="100"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-102.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="101"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-103.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="102"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-104.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="103"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-105.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="104"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-106.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="105"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-107.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="106"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-108.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="107"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-109.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="108"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-110.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="109"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-111.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="110"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-112.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="111"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-113.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="112"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-114.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="113"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-115.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="114"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-116.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="115"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-117.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="116"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-118.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="117"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-119.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="118"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-120.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="119"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-121.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="120"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-122.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="121"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-123.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="122"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-124.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="123"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-125.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="124"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-126.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="125"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-127.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="126"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-128.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="127"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-129.jpg"      alt="Design project"                    class="project-img" loading="lazy" data-index="128"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-130.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="129"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-131.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="130"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-132.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="131"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-133.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="132"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-134.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="133"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-135.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="134"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-136.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="135"></div>
+                    <div class="project-item" data-category="digital">  <img src="assets/project-137.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="136"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-138.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="137"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-141.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="140"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-142.png"      alt="Design project"                      class="project-img" loading="lazy" data-index="141"></div>
+                    <div class="project-item" data-category="print">    <img src="assets/project-144.jpg"      alt="Design project"                      class="project-img" loading="lazy" data-index="143"></div>
+                    <div class="project-item" data-category="branding"> <img src="assets/project-145.jpeg"     alt="Design project"                      class="project-img" loading="lazy" data-index="144"></div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Brands Section -->
-    <section id="brands">
+    <!-- =====================
+         BRANDS
+         ===================== -->
+    <section id="brands" aria-labelledby="brands-title">
         <div class="section-header">
-            <span class="section-subtitle">Trusted By</span>
-            <h2 class="section-title">Brands I've Worked With</h2>
+            <span class="section-label">Clients</span>
+            <h2 class="section-title" id="brands-title">Brands I've worked with</h2>
         </div>
         <div class="brands-container">
             <div class="brands-image-wrapper">
-                <img id="brands-image" src="assets/brandsthatiworkedforlight.png" alt="Brands I worked for">
+                <img
+                    id="brands-image"
+                    src="assets/brandsthatiworkedforlight.png"
+                    alt="Logos of brands Hasan Bayramoglu has worked with, including Condé Nast, Hearst, Vogue, GQ, National Geographic, Esquire, and more"
+                    loading="lazy"
+                >
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- =====================
+         CONTACT
+         ===================== -->
+    <section id="contact" aria-labelledby="contact-title">
         <div class="section-header">
-            <span class="section-subtitle">Let's Connect</span>
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-description">Have a project in mind? Let's create something amazing together.</p>
+            <span class="section-label">Work together</span>
+            <h2 class="section-title" id="contact-title">Get in touch</h2>
+            <p class="section-description">Have a project in mind? I'd like to hear about it.</p>
         </div>
+
         <div class="contact-container">
             <div class="contact-cards">
                 <a href="mailto:hasanbayramogluusa@gmail.com" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email Me</h3>
+                    <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                    <h3>Email</h3>
                     <p>hasanbayramogluusa@gmail.com</p>
-                    <span class="contact-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
+                    <span class="contact-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
+
                 <a href="tel:+19255189256" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Call/Text Me</h3>
+                    <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                    <h3>Phone</h3>
                     <p>+1 (925) 518-9256</p>
-                    <span class="contact-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
+                    <span class="contact-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
-                <a href="https://www.instagram.com/hbdesignamerica/" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
+
+                <a href="https://www.instagram.com/hbdesignamerica/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></div>
                     <h3>Instagram</h3>
                     <p>@hbdesignamerica</p>
-                    <span class="contact-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
+                    <span class="contact-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
-                <a href="https://www.linkedin.com/in/hasan-b-691a9157/" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
+
+                <a href="https://www.linkedin.com/in/hasan-b-691a9157/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></div>
                     <h3>LinkedIn</h3>
                     <p>Hasan Bayramoglu</p>
-                    <span class="contact-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
+                    <span class="contact-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- =====================
+         FOOTER
+         ===================== -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">Hasan Bayramoglu</span>
-                </div>
-                <p class="footer-tagline">Creating visual excellence since 1990</p>
+                <div class="footer-logo">Hasan Bayramoglu</div>
+                <p class="footer-tagline">Creative direction since 1990</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Hasan Bayramoglu. All rights reserved.</p>
-                <a href="#hero" class="back-to-top">
-                    <i class="fas fa-arrow-up"></i>
+                <div class="footer-legal">
+                    <a href="mailto:hasanbayramogluusa@gmail.com">Contact</a>
+                    <a href="https://envoymag.com" target="_blank" rel="noopener noreferrer">Envoy Magazine</a>
+                </div>
+                <a href="#hero" class="back-to-top" aria-label="Back to top">
+                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="image-modal" class="modal">
+    <!-- =====================
+         IMAGE MODAL
+         ===================== -->
+    <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-label="Project image viewer">
         <div class="modal-backdrop"></div>
         <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">
-                <i class="fas fa-times"></i>
+            <button class="modal-close" aria-label="Close image viewer">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
-            <div class="modal-nav modal-prev">
-                <i class="fas fa-chevron-left"></i>
+            <div class="modal-nav modal-prev" role="button" tabindex="0" aria-label="Previous image">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </div>
-            <div class="modal-nav modal-next">
-                <i class="fas fa-chevron-right"></i>
+            <div class="modal-nav modal-next" role="button" tabindex="0" aria-label="Next image">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </div>
             <div class="modal-image-wrapper">
                 <img class="modal-image" id="modal-image" src="" alt="">
@@ -1266,9 +803,10 @@
         </div>
     </div>
 
-    <!-- Scripts: Chart.js loaded async so it doesn't block the load event -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" async></script>
     <script src="js/main.js"></script>
     <script src="js/projects.js"></script>
+
 </body>
 </html>
