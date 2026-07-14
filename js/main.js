@@ -927,6 +927,7 @@ function initEnvoyGallery() {
         { title: "Envoy Magazine — Issue 06 Cover", description: "Bold cover design with refined visual storytelling and impactful imagery." },
         { title: "Envoy Magazine — Issue 07 Cover", description: "Another milestone in Envoy's visual journey, as the brand continues to evolve further into the topic of peace." },
         { title: "Envoy Magazine — Issue 08 Cover", description: "The latest issue representing the pinnacle of Envoy's visual evolution." },
+        { title: "Envoy Magazine — Issue 09 Cover", description: "The newest issue continuing Envoy's legacy of sophisticated visual storytelling and editorial excellence." },
     ];
 
     // Build image array for the cover gallery (using the actual img elements)
